@@ -1,0 +1,20 @@
+/* You can add global styles to this file, and also import other style files */
+@import "app/variable";
+
+@font-face {
+  font-family: "HelveticaNeueLTStd", Helvetica, Arial, san-serif;
+  src: url("assets/fonts/HelveticaNeueLTStdLt.otf");
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'HelveticaNeueLTStd', Helvetica, Arial, sans-serif;
+  font-size: 14px;
+  line-height: 22px;
+}
