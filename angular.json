@@ -5,7 +5,9 @@
   "projects": {
     "cx": {
       "projectType": "application",
-      "schematics": {},
+      "schematics": {
+        
+      },
       "root": "",
       "sourceRoot": "src",
       "prefix": "app",
@@ -120,6 +122,12 @@
           }
         }
       }
-    }},
-  "defaultProject": "cx"
+    }
+  },
+  "defaultProject": "cx",
+  "schematics": {
+    "@nrwl/schematics:component": {
+      "styleext": "scss"
+    }
+  }
 }

@@ -1,0 +1,331 @@
+.type-1{
+.corWrapper {
+  width: 100%;
+  text-align: left;
+  //margin: 100px;
+}
+
+.corButton {
+  display: inline-block;
+  vertical-align: middle;
+  position: relative;
+  margin: 1em;
+}
+
+.corButton span {
+  display: block;
+  padding: 1em;
+  font: normal normal bold 36px/42px Arial;
+ // font-size: 30px;
+  font-weight: bold;
+  /* line-height: 1em; */
+  color: #000000;
+  line-height: 35px;
+ 
+  -webkit-transition: all 0.2s linear;
+  -moz-transition: all 0.2s linear;
+  -o-transition: all 0.2s linear;
+  transition: all 0.2s linear;
+}
+
+.corButton:hover {
+  cursor: pointer;
+}
+span{
+    animation: animate 5s forwards;
+    //animation-delay: 4s;
+}
+@keyframes animate{
+    0%{
+        opacity: 0;
+    }
+    75%{
+      opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}
+.corButton .corners {
+  position: absolute;
+  width: 100%;
+
+  -webkit-transition-duration: 0.2s;
+  -moz-transition-duration: 0.2s;
+  -o-transition-duration: 0.2s;
+  transition-duration: 0.2s;
+}
+
+.corButton .corners:before,
+.corButton .corners:after {
+  content: '';
+  position: absolute;
+  width: 2%;
+  height: 2%;
+  padding: 1%;
+  -webkit-transition-duration: 0.1s;
+  -moz-transition-duration: 0.1s;
+   -o-transition-duration: 0.1s;
+  transition-duration: 0.1s;
+  -webkit-transform: translateZ(0);
+  -moz-transform: translateZ(0);
+  -ms-transform: translateZ(0);
+  -o-transform: translateZ(0);
+  transform: translateZ(0);
+}
+
+/*  To disable corners comment below  */
+.corButton .corners.top:before {
+  border-top: 3px solid black;
+  border-left: 3px solid black;
+}
+
+.corButton .corners.top:after {
+  border-top: 3px solid black;
+  border-right: 3px solid black;
+}
+
+.corButton .corners.bottom:before {
+  border-bottom: 3px solid black;
+  border-left: 3px solid black;
+}
+
+.corButton .corners.bottom:after {
+  border-bottom: 3px solid black;
+  border-right: 3px solid black;
+}
+
+.corButton .corners:before {
+  left: 18em;
+  animation: anime 3s forwards;
+  animation-delay: 1s;
+}
+@keyframes anime{
+0%{
+  left: 18em;
+ 
+}
+100%{
+  left: 0.1em;
+ 
+  
+}
+}
+.corButton .corners:after {
+ right: 18em;
+   animation: anime1 3s forwards;
+   animation-delay: 1s;
+}
+@keyframes anime1 {
+  0% {
+    right: 18em;
+  }
+
+  100% {
+    right: 0.1em;
+  }
+}
+.corButton .corners.top {
+  top: 0.1em;
+}
+
+.corButton .corners.bottom {
+  bottom: 0.9em;
+}
+
+/*.corButton:hover .corners:before {
+  left: -0.2em;
+}
+
+.corButton:hover .corners:after {
+  right: -0.2em;
+}
+
+.corButton:hover .corners.top {
+  top: -0.2em;
+}
+
+.corButton:hover .corners.bottom {
+  bottom: 0.6em;
+}*/
+}
+
+
+.type-2{
+  .corWrapper {
+    width: 100%;
+    text-align: left;
+    //margin: 100px;
+  }
+
+  .corButton {
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    margin: 1em;
+  }
+
+  .corButton span{
+    display: block;
+    padding: 1em;
+    font: Arial;
+    font-size: 20px;
+    // font-size: 30px;
+    font-weight: 500;
+    /* line-height: 1em; */
+    color: #000000;
+    line-height: 35px;
+
+    -webkit-transition: all 0.2s linear;
+    -moz-transition: all 0.2s linear;
+    -o-transition: all 0.2s linear;
+    transition: all 0.2s linear;
+  }
+
+  .corButton:hover {
+    cursor: pointer;
+  }
+
+  span {
+    animation: animate2 3s forwards;
+    //animation-delay: 4s;
+  }
+
+  @keyframes animate2 {
+    0% {
+      opacity: 0;
+    }
+
+    90% {
+      opacity: 0;
+    }
+
+    100% {
+      opacity: 1;
+    }
+  }
+.corButton .text-2{
+  font-size: 16px;
+  line-height: 22px;
+}
+  .corButton .corners {
+    position: absolute;
+    width: 100%;
+
+    -webkit-transition-duration: 0.2s;
+    -moz-transition-duration: 0.2s;
+    -o-transition-duration: 0.2s;
+    transition-duration: 0.2s;
+  }
+
+  .corButton .corners:before,
+  .corButton .corners:after {
+    content: '';
+    position: absolute;
+    width: 2%;
+    height: 2%;
+    padding: 1%;
+    -webkit-transition-duration: 0.1s;
+    -moz-transition-duration: 0.1s;
+    -o-transition-duration: 0.1s;
+    transition-duration: 0.1s;
+    -webkit-transform: translateZ(0);
+    -moz-transform: translateZ(0);
+    -ms-transform: translateZ(0);
+    -o-transform: translateZ(0);
+    transform: translateZ(0);
+  }
+
+  /*  To disable corners comment below  */
+  .corButton .corners.top:before {
+    border-top: 3px solid black;
+    border-left: 3px solid black;
+  }
+
+  .corButton .corners.top:after {
+    border-top: 3px solid black;
+    border-right: 3px solid black;
+  }
+
+  .corButton .corners.bottom:before {
+    border-bottom: 3px solid black;
+    border-left: 3px solid black;
+  }
+
+  .corButton .corners.bottom:after {
+    border-bottom: 3px solid black;
+    border-right: 3px solid black;
+  }
+
+  .corButton .corners:before {
+    left: 18em;
+    animation: anime2 4s forwards;
+    animation-delay: 1s;
+  }
+
+  @keyframes anime2 {
+    0% {
+      left: 18em;
+      opacity: 1;
+
+    }
+
+    50% {
+      left: 0.1em;
+      opacity: 1;
+
+
+    }
+    100%{
+      opacity: 0;
+       left: 0.1em;
+    }
+  }
+
+  .corButton .corners:after {
+    right: 18em;
+    animation: anime3 4s forwards;
+    animation-delay: 1s;
+  }
+
+  @keyframes anime3 {
+    0% {
+      right: 18em;
+      opacity: 1;
+    }
+
+    50% {
+      right: 0.1em;
+      opacity: 1;
+    }
+    100%{
+  opacity: 0;
+   right: 0.1em;
+    }
+  }
+
+  .corButton .corners.top {
+    top: 0.1em;
+  }
+
+  .corButton .corners.bottom {
+    bottom: 0.9em;
+  }
+
+  /*.corButton:hover .corners:before {
+  left: -0.2em;
+}
+
+.corButton:hover .corners:after {
+  right: -0.2em;
+}
+
+.corButton:hover .corners.top {
+  top: -0.2em;
+}
+
+.corButton:hover .corners.bottom {
+  bottom: 0.6em;
+}*/
+
+}

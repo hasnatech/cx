@@ -1,0 +1,33 @@
+@import '../_variable.scss';
+
+
+.left{
+    width: 60%;
+   animation: bottomtop 1s forwards;
+}
+@keyframes bottomtop {
+    0%{
+        transform: translateY(100%);
+    }
+    100%{
+         transform: translateY(0%);
+    }
+}
+.right{
+
+    width: 20%;
+    margin-left: 10%;
+    animation: rightleft 1s forwards;
+    img{
+        max-width: 60%;
+    }
+}
+@keyframes rightleft {
+  0% {
+    transform: translateX(100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}

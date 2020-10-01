@@ -1,0 +1,41 @@
+@import '../_variable.scss';
+.home {
+  position: relative;
+  width: 1440px;
+  height: 750px;
+  background-image: url('../../assets/images/intro.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .bg {
+    .content {
+      // margin-top: 100px;
+      text-align: center;
+
+      .text {
+        color: #fff;
+
+        h1 {
+          font-size: 60px;
+        }
+      }
+
+      .button {
+        border: 2px solid #fff;
+        margin-left: 42%;
+        margin-right: 42%;
+        border-radius: 10px;
+        padding: 10px;
+        background-color: #fff;
+        color: $primary;
+        font-weight: bold;
+        cursor: pointer;
+      }
+    }
+
+  }
+}

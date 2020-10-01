@@ -1,6 +1,6 @@
 
 
-$primary:#005F86;
+$primary:#005f85;
 $secondary:#007681;
 $tertiary: #279989;
 $white:#fff;
@@ -11,19 +11,7 @@ $radius:5px;
 $colors: (#9E2A2F, #BE531C, #CF7F00, #DAAA00, #ABAD25, #658D1B, #279989, #007681, #005F86, #002d44);
 
 
-@for $i from 1 through length($colors) {
-  .color-#{$i} {
-    color: nth($colors, $i);
-  }
 
-  .bg-color-#{$i} {
-    background-color: nth($colors, $i);
-    color: #fff;
-  }
-  .bg-border-#{$i} {
-    border-color: nth($colors, $i);
-  }
-}
 
 .primary-bg {
   background-color: $primary;

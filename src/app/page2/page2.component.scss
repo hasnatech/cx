@@ -1,0 +1,44 @@
+.section{
+      padding: 0px;
+}
+.left {
+
+  width: 50%;
+
+  animation: leftright 1s forwards;
+  
+
+  img {
+    max-width: 100%;
+    box-shadow: 0px 0px 15px #0000002E;
+    border-radius: 0px 10px 10px 0px;
+  }
+}
+
+@keyframes leftright {
+  0% {
+    transform: translateX(-100%);
+  }
+
+  100% {
+    transform: translateX(0%);
+  }
+}
+
+.right {
+  width: 50%;
+  animation: bottomtop 1s forwards;
+  margin:0 5%;
+  
+
+}
+
+@keyframes bottomtop {
+  0% {
+    transform: translateY(100%);
+  }
+
+  100% {
+    transform: translateY(0%);
+  }
+}

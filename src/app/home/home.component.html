@@ -1,0 +1,13 @@
+<div class="home">
+  <div class="bg">
+    <div *ngFor="let data of this.products" class="content">
+      <div class="text">
+        <h1>{{data.title}}</h1>
+      </div>
+      <div class="button" (click)="start()">
+        {{data.button}}
+      </div>
+    </div>
+  </div>
+</div>
+

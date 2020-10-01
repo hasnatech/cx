@@ -1,0 +1,43 @@
+@import '../_variable.scss';
+.section{
+    padding: 0px;
+}
+
+.left {
+  position: relative;
+  width: 50%;
+  margin: 0px 5%;
+ 
+  animation: leftright 1s forwards;
+
+img {
+  max-width: 100%;
+}
+}
+@keyframes leftright{
+  0%{
+    transform: translateX(-100%);
+  }
+  100%{
+      transform: translateX(0%);
+  }
+}
+.right {
+  width: 50%;
+  animation: lefttoright 1s forwards;
+  img{
+    max-width: 100%;
+    box-shadow: 0px 0px 15px #0000002E;
+    border-radius: 10px 0px 0px 10px;
+  }
+  }
+
+  @keyframes lefttoright {
+    0% {
+      transform: translateX(100%);
+    }
+
+    100% {
+      transform: translateX(0%);
+    }
+  }
