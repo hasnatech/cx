@@ -33,13 +33,13 @@ export class AppComponent {
 
 
   next() {
-    if (this.pagenumber < 4) {
+    if (this.pagenumber < 5) {
     this.pagenumber++;
     this.router.navigateByUrl('/page' + this.pagenumber);
     }
   
 
-    if (this.pagenumber == 4) {
+    if (this.pagenumber == 5) {
       this.touched = true;
      
     }
@@ -54,7 +54,7 @@ console.log(this.pagenumber)
       this.router.navigateByUrl('/home')
       this.pagenumber =1
     }
-    if (this.pagenumber != 4) {
+    if (this.pagenumber != 5) {
       this.touched = true;
 
     }

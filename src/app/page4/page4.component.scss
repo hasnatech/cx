@@ -1,8 +1,17 @@
 .content{
     margin:0px 100px;
-
+    animation: topbottom 1s forwards;
     .top{
         margin-top: -200px;
         margin-bottom: 30px;
+    }
+}
+@keyframes topbottom {
+    0%{
+   transform: translateY(-100%);
+   
+    }
+    100%{
+        transform: translateY(0%);
     }
 }
