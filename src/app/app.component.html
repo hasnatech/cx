@@ -1,22 +1,17 @@
-
-
-
-<div class="pagecontent" div *ngFor="let data of this.products">
+<div class="flex fcenter fullheight">
+  <div class="pagecontent">
     <div class="header">
-        
-        <div class="text">{{data.title}}</div>
-        </div>
-        <div class="pagedata">
-<router-outlet></router-outlet>
-</div>
- 
-<div class="footer" *ngIf="router.url !== '/' && router.url !== '/home'">
-  
-    <div class="prev btn" *ngIf="clicked" (click)="previous()"> &#8249;&#8249;
-       </div>
-    <div class="center"></div>
-     <div class="nxt btn" *ngIf="touched" (click)="next()"> &#8250;&#8250;</div>
+      <div class="title">Introduction to Empathy</div>
+    </div>
+    <div class="pagedata" [ngClass]="{'fullheight' : router.url === '/home'}">
+      <router-outlet></router-outlet>
+    </div>
 
-</div>
-
+    <div class="footer" *ngIf="router.url !== '/' && router.url !== '/home'">
+      <div class="prev btn" *ngIf="clicked" (click)="previous()"> &#8249;&#8249;
+      </div>
+      <div class="center"></div>
+      <div class="nxt btn" *ngIf="touched" (click)="next()"> &#8250;&#8250;</div>
+    </div>
+  </div>
 </div>

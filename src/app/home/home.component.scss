@@ -1,12 +1,13 @@
 @import '../_variable.scss';
 .home {
   position: relative;
-  width: 1440px;
-  height: 750px;
+  width: 100%;
+  height: 100%;
   background-image: url('../../assets/images/intro.png');
   background-size: cover;
   background-repeat: no-repeat;
   margin: auto;
+  margin-top: -82px;
   display: flex;
   align-items: center;
   justify-content: center;

@@ -10,40 +10,33 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'cx';
-  data: any;
-  products: any;
+  //data: any;
+  //products: any;
   intropage: boolean;
   pagenumber: number;
   clicked = true;
-  touched=true;
- constructor(public service: MainService, private httpClient: HttpClient, private router: Router){
-    
+  touched = true;
+
+  constructor(public service: MainService, private httpClient: HttpClient, private router: Router) {
+
   }
   ngOnInit() {
     this.pagenumber = 1;
-
-
-    this.httpClient.get("assets/json/data.json").subscribe(data => {
+    /*this.httpClient.get("assets/json/data.json").subscribe(data => {
       console.log(data);
       this.products = data;
-    })
+    })*/
   }
-  
-
-
 
   next() {
     if (this.pagenumber < 4) {
-    this.pagenumber++;
-    this.router.navigateByUrl('/page' + this.pagenumber);
+      this.pagenumber++;
+      this.router.navigateByUrl('/page' + this.pagenumber);
     }
-  
-
     if (this.pagenumber == 4) {
       this.touched = true;
-     
     }
-console.log(this.pagenumber)
+    console.log(this.pagenumber)
   }
 
   previous() {
@@ -52,11 +45,10 @@ console.log(this.pagenumber)
     if (this.pagenumber == 0) {
       this.clicked = true;
       this.router.navigateByUrl('/home')
-      this.pagenumber =1
+      this.pagenumber = 1
     }
     if (this.pagenumber != 4) {
       this.touched = true;
-
     }
     console.log(this.pagenumber)
   }

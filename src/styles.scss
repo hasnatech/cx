@@ -1,35 +1,38 @@
 /* You can add global styles to this file, and also import other style files */
 @import "app/variable";
 
-@font-face {
-  font-family: "HelveticaNeueLTStd", Helvetica, Arial, san-serif;
-  src: url("assets/fonts/HelveticaNeueLTStdLt.otf");
-}
-
 html {
   scroll-behavior: smooth;
-}
-
-
-body {
- 
-  padding: 0;
-  font-family: 'HelveticaNeueLTStd', Helvetica, Arial, sans-serif;
-  font-size: 14px;
-  line-height: 22px;
- margin: 0px;
-
   
 }
+html, body, .fullheight{
+  height: 100%;
+  overflow: hidden;
+}
 
+body {
+  padding: 0;
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 14px;
+  //line-height: 22px;
+  margin: 0px;
+}
 
 .section {
   display: flex;
   align-items: center;
   justify-content: center;
-  //  border: 2px solid red;
-  max-height: 620px;
-  margin-top: 30px;
-  padding: 0px 100px;
- // border: 2px solid red;
+}
+
+.flex {
+  display: flex;
+
+  &.fcenter {
+    justify-content: center;
+    align-items: center;
+  }
+}
+
+.margin{
+  padding: 20px;
 }

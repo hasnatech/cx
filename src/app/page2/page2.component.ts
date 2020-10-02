@@ -11,5 +11,5 @@ export class Page2Component implements OnInit {
 
   ngOnInit() {
   }
-  data =`Empathy is awareness of other’s feelings, needs, and concerns. `
+  data =`<h2>Empathy is awareness of other’s feelings, needs, and concerns.</h2>`
 }

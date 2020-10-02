@@ -1,27 +1,12 @@
 <div *ngIf="type == 1" class="type-{{type}}">
-<div class="cornersButton">
+  <div class="cornersButton">
     <div class="corWrapper">
-      <div class="corButton">
-        <div class='corners top'></div>
-        <span>{{data}}</span>
-        <div class="corners bottom"></div>
+      <div id="bracketPanel" class="corButton">
+        <div id="left" class='corners left'></div>
+        <div id="text" class="text" [innerHTML]="data"></div>
+        <div id="right" class="corners right"></div>
       </div>
-    </div>
-</div>
-</div>
-<div *ngIf="type == 2" class="type-{{type}}">
-<div class="cornersButton">
-  <div class="corWrapper">
-    <div class="corButton">
-      <div class='corners top'></div>
-      <div *ngIf="text == 1">
-      <span class="text-{{text}}" [innerHtml]="data"></span>
-      </div>
-      <div *ngIf="text == 2">
-      <span class="text-{{text}}" [innerHtml]="data"></span>
-      </div>
-      <div class="corners bottom"></div>
     </div>
   </div>
 </div>
-</div>
+

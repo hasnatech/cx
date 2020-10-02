@@ -11,6 +11,5 @@ export class Page3Component implements OnInit {
 
   ngOnInit() {
   }
-  data =`Empathy is a critical component to serving our clients and building relationships as we see our clients needs and pain points from their perspective. 
-`
+  data =`<h2>Empathy is a critical component to serving our clients and building relationships as we see our clients needs and pain points from their perspective.</h2>`
 }
