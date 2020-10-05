@@ -1,33 +1,21 @@
 <div class="section">
   <div class="content">
-    <!-- <app-animatedtext [(data)]="this.data" type="2" text="2"></app-animatedtext>
- <div *ngFor="let day of days" class="questions">
-   create a radio button
-   <div class="rad">
-   <p class="correct">
-       <label class="container">
-   <input type="radio" class="radio" value="{{day.value}}"
-   name="{{'choices_'+current_ques_no}}" (change)="radioChangeHandler($event)" [disabled]="disabled">
-   <span class="checkmark"></span></label> </p>
-  
-   <p class="choice">{{day.text}}</p>
-   </div>-->
-
-    <!-- <div *ngFor ="let current_ques of this.quiz; let i = index">
-   </div>-->
+ 
     <div *ngIf="current_ques != undefined">
       <div class="question">
-        <app-animatedtext [(data)]="this.current_ques.question.content" type="2" text="2"></app-animatedtext>
+        <app-animatedtext [(data)]="this.current_ques.question.content" font ="2"></app-animatedtext>
       </div>
-      <div *ngFor="let ans of this.current_ques.question.choices;let i=index" class="choose">
+      <div *ngFor="let ans of this.current_ques.question.choices;let i=index" class="choose" id="choose">
         <div class="rad">
           <p class="correct">
             <label class="container">
               <input type="radio" class="radio" name="{{'choices_'+current_ques_no}}" value="{{ans.content}}"
-                (change)="check(i)" [disabled]="disabled"> <span class="checkmark"></span></label>
+                (change)="check(i)" [disabled]="disabled"> <span class="checkmark"></span>
+                <div class="choice">{{ans.content}}</div></label>
+                 
           </p>
 
-          <p class="choice"> {{ans.content}}</p>
+          
 
         </div>
 
@@ -43,25 +31,37 @@
     <div class="points">
       Points Scored<br><br>
       {{marks}}
+      
     </div>
     <div *ngIf="result_page">
 
-      Your Score : {{marks}}
+      Your Percentage : {{percentage}}%
 
 
 
       <div (click)="replay()" class="replay"><a href="/page5"> replay</a></div>
 
+      <div *ngIf="correct">
+        <p>
+          We’re glad you have spent time learning more about empathy and know the skill is not developed over night.
+          Keep working on developing your empathy and don’t hesitate to partner with your manager and coworkers to
+          discuss how to handle certain situations.
+        </p>
+
+
+      </div>
+ <div *ngIf="wrong">
+   <p>
+    Great work! You’ve been able to identify most, if not all, responses that are most empathetic. You have a high-level
+    understanding of empathy. Don’t hesitate to help your coworkers develop their empathy and let them know they can
+    reach out to you if they need help responding to clients.
+   </p>
+
+
+ </div>
+
+
     </div>
   </div>
 </div>
-<!--<div class="submit" (click)="submit()" [hidden]="ishidden">SUBMIT
- </div>
-   <p><span>You selected: </span><b>{{selectedDay}}</b></p>
-   {{marks}}
-</div>-->
 
-
-
-
-<!-- the radio button change will be reflected below -->

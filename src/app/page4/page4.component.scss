@@ -1,0 +1,17 @@
+.content{
+    margin: 0px 200px;
+}
+.bottom{
+ /*   animation: anime 1s forwards;
+    animation-delay: 4s;
+    opacity: 0;*/
+    
+}
+@keyframes anime{
+    0%{
+        opacity: 0;
+    }
+    100%{
+        opacity: 1;
+    }
+}

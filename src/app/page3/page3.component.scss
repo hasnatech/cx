@@ -1,0 +1,16 @@
+.content{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.left{
+    width: 60%;
+}
+.right_img {
+    width: 40%;
+    img{
+     max-width: 100%;
+    }
+}

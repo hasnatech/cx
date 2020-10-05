@@ -18,10 +18,13 @@ export class AppComponent {
   touched = true;
 
   constructor(public service: MainService, private httpClient: HttpClient, private router: Router) {
-
+  
   }
   ngOnInit() {
-    this.pagenumber = 1;
+    
+      this.pagenumber = 1;
+   
+  
     /*this.httpClient.get("assets/json/data.json").subscribe(data => {
       console.log(data);
       this.products = data;

@@ -12,6 +12,7 @@ export class AnimatedtextComponent implements AfterViewInit {
   @Input() type;
   @Input() text;
   @Input() animation = 'play';
+  @Input() font
 
   constructor() { }
 
