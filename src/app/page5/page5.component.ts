@@ -22,11 +22,11 @@ export class Page5Component implements OnInit {
   result_page;
   percentage: number;
   value: any;
-  constructor(private router: Router) { 
-   
+  constructor(private router: Router) {
+
   }
 
-  quiz:any = [
+  quiz: any = [
     {
       "type": "single_choice",
       "question": {
@@ -60,12 +60,12 @@ back from them within a couple of hours, but either way, I'll follow up with you
               }
             ]
           }
-         
+
         ]
       }
     },
-    
-   
+
+
 
     {
       "type": "single_choice",
@@ -140,8 +140,8 @@ back from them within a couple of hours, but either way, I'll follow up with you
 
   ]
 
-  
- 
+
+
   /*selectedDay: string = '';
   days: any = [{
     text: `Empathic Response: I can understand the frustration. There has been a server outage and the server
@@ -167,7 +167,7 @@ back from them within a couple of hours, but either way, I'll follow up with you
   }
 */
   ngOnInit() {
- this.show_question(0)
+    this.show_question(0)
   }
   /*data =`Client: I keep getting disconnected from my Teams meetings today. Half of my meeting have been negatively impacted. This
 is really
@@ -194,90 +194,90 @@ marks=0;
 
 
 
-show_choice(i) {
-  this.selected_ques_no = i;
-  this.selected_ques = this.quiz[i]
+  show_choice(i) {
+    this.selected_ques_no = i;
+    this.selected_ques = this.quiz[i];
 
-}
-
-show_question(i) {
-  this.current_ques_no = i;
-  //console.log(this.value)
-  this.current_ques = this.quiz[i]
-  this.ishidden = true
-}
-
-
-check(i) {
-  this.current_ques.selected = i;
-  console.log(this.current_ques.selected)
- // console.log(this.current_ques.question[0].selected)
-  this.ishidden = true;
-  this.isnext = false;
-  // console.log(this.current_ques_no)
-  // console.log(this.current_no);
-  //console.log( this.current_ques.selected)
-}
-
-
-marks: number = 0;
-
-submit() {
-  //validate
-  this.validateSingle(this.current_ques);
-  this.isnext = true;
-  this.ishidden = false;
-  this.disabled = true;
-
-}
-current_no = 1;
-next(){
-
-  this.current_ques_no++;
-  if (this.current_ques_no < this.quiz.length) {
-    this.current_no++;
-    this.show_question(this.current_ques_no)
-  } else {
-    this.showresult();
-    this.current_no = 1;
   }
-  this.isnext = true;
-  this.disabled = false;
-  this.ishidden = true;
-}
-showresult() {
-  this.current_ques = undefined;
-  this.result_page = true;
 
-  this.percentage = this.marks / this.current_ques_no * 100;
-  if (this.percentage >= 75) {
-    this.try = true;
+  show_question(i) {
+    this.current_ques_no = i;
+    //console.log(this.value)
+    this.current_ques = this.quiz[i];
+    this.ishidden = true;
   }
-}
+
+
+  check(i) {
+    this.current_ques.selected = i;
+    console.log(this.current_ques.selected)
+    // console.log(this.current_ques.question[0].selected)
+    this.ishidden = true;
+    this.isnext = false;
+    // console.log(this.current_ques_no)
+    // console.log(this.current_no);
+    //console.log( this.current_ques.selected)
+  }
+
+
+  marks: number = 0;
+
+  submit() {
+    //validate
+    this.validateSingle(this.current_ques);
+    this.isnext = true;
+    this.ishidden = false;
+    this.disabled = true;
+
+  }
+  current_no = 1;
+  next() {
+
+    this.current_ques_no++;
+    if (this.current_ques_no < this.quiz.length) {
+      this.current_no++;
+      this.show_question(this.current_ques_no)
+    } else {
+      this.showresult();
+      this.current_no = 1;
+    }
+    this.isnext = true;
+    this.disabled = false;
+    this.ishidden = true;
+  }
+  showresult() {
+    this.current_ques = undefined;
+    this.result_page = true;
+
+    this.percentage = this.marks / this.current_ques_no * 100;
+    if (this.percentage >= 75) {
+      this.try = true;
+    }
+  }
 
 
 
   validateSingle(current_ques) {
-      
-      //console.log(this.current_ques.selected, this.current_ques.question.choices[this.current_ques.selected].correct);
-      if (this.current_ques.question.choices[this.current_ques.selected].correct == "true") {
-       this.marks = this.marks + 100;
-      }
-      else{
-        this.marks = this.marks +50;
-      }
-  
-  
- /* switch (item.type) {
-    case 'single_choice':
-      
-      break;
+
+    //console.log(this.current_ques.selected, this.current_ques.question.choices[this.current_ques.selected].correct);
+    if (this.current_ques.question.choices[this.current_ques.selected].correct == "true") {
+      this.marks = this.marks + 100;
+    }
+    else {
+      this.marks = this.marks + 50;
+    }
 
 
-    default:
-      break;*/
- }
- 
+    /* switch (item.type) {
+       case 'single_choice':
+         
+         break;
+   
+   
+       default:
+         break;*/
+  }
+
 
 
 }

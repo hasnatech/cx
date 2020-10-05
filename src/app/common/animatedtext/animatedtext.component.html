@@ -1,12 +1,11 @@
-<div *ngIf="type == 1" class="type-{{type}}">
+<div class="type-{{type}}">
   <div class="cornersButton">
     <div class="corWrapper">
-      <div id="bracketPanel" class="corButton">
-        <div id="left" class='corners left'></div>
-        <div id="text" class="text" [innerHTML]="data"></div>
-        <div id="right" class="corners right"></div>
+      <div class="corButton">
+        <div class='corners left'></div>
+        <div class="text" [innerHTML]="data"></div>
+        <div class="corners right"></div>
       </div>
     </div>
   </div>
 </div>
-

@@ -1,17 +1,24 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-page4',
   templateUrl: './page4.component.html',
   styleUrls: ['./page4.component.scss']
 })
-export class Page4Component implements OnInit {
+export class Page4Component implements AfterViewInit {
+
+  show = 0;
 
   constructor() { }
 
-  ngOnInit() {
+  ngAfterViewInit(): void {
+    setTimeout(() => {
+      this.show = 1;
+    }, 2000);
   }
-  data =`Let's ﬁnd out if you can identify the more empathetic response in some common Global IT
+
+
+  data = `Let's ﬁnd out if you can identify the more empathetic response in some common Global IT
 situations. Remember, empathy is a key element to creating great client experiences.`
   data1 = `Rules of the game:
 <ul>
