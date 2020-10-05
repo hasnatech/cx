@@ -24,7 +24,7 @@ export class HomeComponent implements OnInit {
   start(){
     setTimeout(() => {
       this.router.navigateByUrl('/page1');
-      this.pagenumber = 1;
+     
     }, 1000);
     
   }

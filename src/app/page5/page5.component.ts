@@ -218,11 +218,7 @@ export class Page5Component implements OnInit {
   ngOnInit():void {
     this.show_question(0);
 
-    const top = document.getElementById('choose');
-    const speed = 2;
-    const ease = "Back.easeOut.config(1.7)";
-    let tl = new TimelineMax();
-    tl.fromTo(top, speed, { x: 200, opacity: 0, ease: ease }, { x: 0, opacity: 1, delay: 2 }, 0);
+   
   }
   
 
@@ -239,7 +235,7 @@ export class Page5Component implements OnInit {
 
   show_question(i) {
     this.current_ques_no = i;
-    //console.log(this.value)
+    
     this.current_ques = this.quiz[i];
     this.ishidden = true;
   }
@@ -248,28 +244,22 @@ export class Page5Component implements OnInit {
   check(i) {
     this.current_ques.selected = i;
     console.log(this.current_ques.selected)
-    // console.log(this.current_ques.question[0].selected)
     this.ishidden = true;
     this.isnext = false;
-    // console.log(this.current_ques_no)
-    // console.log(this.current_no);
-    //console.log( this.current_ques.selected)
+  
   }
 
 
   marks: number = 0;
 
   submit() {
-    //validate
     this.validateSingle(this.current_ques);
     this.isnext = true;
     this.ishidden = false;
     this.disabled = true;
-
   }
   current_no = 1;
   next() {
-
     this.current_ques_no++;
     if (this.current_ques_no < this.quiz.length) {
       this.current_no++;
@@ -299,26 +289,11 @@ export class Page5Component implements OnInit {
 
 
   validateSingle(current_ques) {
-
-    //console.log(this.current_ques.selected, this.current_ques.question.choices[this.current_ques.selected].correct);
     if (this.current_ques.question.choices[this.current_ques.selected].correct == "true") {
       this.marks = this.marks + 100;
     }
     else {
       this.marks = this.marks + 50;
     }
-
-
-    /* switch (item.type) {
-       case 'single_choice':
-         
-         break;
-   
-   
-       default:
-         break;*/
-  }
-
-
-
+}
 }

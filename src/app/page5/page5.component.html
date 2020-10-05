@@ -3,7 +3,7 @@
  
     <div *ngIf="current_ques != undefined">
       <div class="question">
-        <app-animatedtext [(data)]="this.current_ques.question.content" font ="2"></app-animatedtext>
+        <app-animatedtext [(data)]="this.current_ques.question.content"></app-animatedtext>
       </div>
       <div *ngFor="let ans of this.current_ques.question.choices;let i=index" class="choose" id="choose">
         <div class="rad">

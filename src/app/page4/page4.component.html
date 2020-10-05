@@ -1,7 +1,7 @@
 <div class="section">
        <div class="content">
         <div class="top">
-           <app-animatedtext [(data)]="this.data"></app-animatedtext>
+           <app-animatedtext *ngIf="showContent1" [(data)]="this.data"></app-animatedtext>
         </div>
        <div class="bottom">
           <app-animatedtext *ngIf="showContent" [(data)]="this.data1"></app-animatedtext>

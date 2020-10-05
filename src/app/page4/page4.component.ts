@@ -9,11 +9,15 @@ export class Page4Component implements OnInit {
 //start = false
  
   public showContent = false;
+  public showContent1 = true;
  
-  constructor() { }
+  constructor() {
+    setInterval(() => this.showContent = true, 5000);
+    
+   }
 
   ngOnInit(){
-    setInterval(() => this.showContent = true, 5000);
+    
     
   }
 
@@ -26,4 +30,6 @@ situations. Remember, empathy is a key element to creating great client experien
 <li>Choose the option you feel is the most empathic response to the scenario.</li>
 </ul>
 `
+
+
 }

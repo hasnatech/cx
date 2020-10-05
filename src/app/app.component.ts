@@ -21,27 +21,20 @@ export class AppComponent {
   
   }
   ngOnInit() {
-    
-      this.pagenumber = 1;
+    this.pagenumber = Number(this.getCookie('currentPage'));
    
-  
-    /*this.httpClient.get("assets/json/data.json").subscribe(data => {
-      console.log(data);
-      this.products = data;
-    })*/
+    
   }
 
   next() {
     if (this.pagenumber < 5) {
-    this.pagenumber++;
-    this.router.navigateByUrl('/page' + this.pagenumber);
+      this.pagenumber++;
+      this.router.navigateByUrl('/page' + this.pagenumber);
     }
-  
 
-    if (this.pagenumber == 5) {
-      this.touched = true;
-    }
-    console.log(this.pagenumber)
+
+    
+    this.setCookie('currentPage', this.pagenumber.toString());
   }
 
   previous() {
@@ -55,7 +48,32 @@ export class AppComponent {
     if (this.pagenumber != 5) {
       this.touched = true;
     }
-    console.log(this.pagenumber)
+    this.setCookie('currentPage', this.pagenumber.toString());
+  }
+
+
+  private getCookie(name: string) {
+    const ca: Array<string> = document.cookie.split(';');
+    const caLen: number = ca.length;
+    const cookieName = `${name}=`;
+    let c: string;
+
+    for (let i = 0; i < caLen; i += 1) {
+      c = ca[i].replace(/^\s+/g, '');
+      if (c.indexOf(cookieName) == 0) {
+        return c.substring(cookieName.length, c.length);
+      }
+    }
+    return 1;
+  }
+
+
+  private setCookie(name: string, value: string, expireDays: number = 30, path: string = '') {
+    const d: Date = new Date();
+    d.setTime(d.getTime() + expireDays * 24 * 60 * 60 * 1000);
+    const expires = `expires=${d.toUTCString()}`;
+    const cpath: string = path ? `; path=${path}` : '';
+    document.cookie = `${name}=${value}; ${expires}${cpath}`;
   }
 
 }

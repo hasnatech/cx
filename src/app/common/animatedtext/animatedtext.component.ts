@@ -9,9 +9,6 @@ import { TimelineMax } from "gsap";
 export class AnimatedtextComponent implements AfterViewInit {
 
   @Input() data;
-  @Input() type;
-  @Input() text;
-  @Input() animation = 'play';
   @Input() font
 
   constructor() { }
@@ -31,11 +28,6 @@ export class AnimatedtextComponent implements AfterViewInit {
     tl.to(text, speed, { opacity: 1, ease: ease }, 2);
     tl.to(leftBracket, speed, { left: 0, ease: ease }, 2);
     tl.to(rightBracket, speed, { right: 24, ease: ease }, 2);
-    //tl.pause();
-    /*console.log('this.animation 1', this.animation);
-    if (this.animation.toString() === 'stop') {
-      console.log('this.animation 2', this.animation);  
-      tl.play();
-    }*/
+    
   }
 }
