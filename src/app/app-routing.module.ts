@@ -38,10 +38,7 @@ const routes: Routes = [
     path: 'page5',
     component: Page5Component,
   },
-  {
-    path: '1',
-    component: AnimatedtextComponent,
-  },
+ 
 ];
 
 @NgModule({
