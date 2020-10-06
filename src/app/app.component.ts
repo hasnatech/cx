@@ -1,7 +1,5 @@
 import { Component } from '@angular/core';
 import { MainService } from './main.service';
-
-import { HttpClient } from "@angular/common/http";
 import { Router } from '@angular/router';
 @Component({
   selector: 'app-root',
@@ -10,14 +8,12 @@ import { Router } from '@angular/router';
 })
 export class AppComponent {
   title = 'cx';
-  //data: any;
-  //products: any;
   intropage: boolean;
   pagenumber: number;
   clicked = true;
   touched = true;
 
-  constructor(public service: MainService, private httpClient: HttpClient, private router: Router) {
+  constructor(public service: MainService, private router: Router) {
 
   }
   ngOnInit() {
