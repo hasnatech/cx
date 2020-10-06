@@ -207,6 +207,48 @@ export class Page5Component implements OnInit {
       }
     },
 
+
+
+    
+
+    {
+      "type": "single_choice",
+      "question": {
+        "content": `Hi, I am the Project Manager for one of the Manufacturing plants here in Cargill. We have
+a scheduled outage this weekend that I need to get changes for. One of our customers put in a
+last-minute order for product and we can no longer take the system down! How can we change
+the outage window? IF we don’t, we will lose money and customer loyalty!`,
+        "selected": "0",
+        "choices": [
+          {
+            "content": `I understand but am not sure if we can do anything. Last minute changes are really
+difficult for us. Let me check with the project team and see where we are at with the testing.
+However, we may just have to go ahead as planned. I will let you know as soon as possible`,
+            "correct": "false",
+            "feedback": [
+              {
+                "correct": "",
+                "incorrect": ""
+              }
+            ]
+          },
+          {
+            "content": `I understand, business needs always come first and don’t worry, I’ll check
+right away to see where we are at with the upgrade plan. Either myself or a delegate will get
+back to you to ensure we can change the outage window, so your customer is not impacted.`,
+            "correct": "true",
+            "feedback": [
+              {
+                "correct": "",
+                "incorrect": ""
+              }
+            ]
+          }
+
+        ]
+      }
+    },
+
    
   ]
 
