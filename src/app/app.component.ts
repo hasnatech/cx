@@ -13,7 +13,7 @@ export class AppComponent {
   clicked = true;
   touched = true;
 
-  constructor(public service: MainService, private router: Router) {
+  constructor(public service: MainService, public router: Router) {
     this.pagenumber = Number(this.getCookie('currentPage'));
   }
 

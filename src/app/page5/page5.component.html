@@ -38,29 +38,72 @@
 
 
         <div class="multi-graph">
-          <div class="graph " style="--percentage :100 ; "></div>
-          <div class="graph " style="--percentage : 83.32; "></div>
-          <div class="graph " style="--percentage : 66.64; "></div>
-          <div class="graph " style="--percentage : 49.98; "></div>
-          <div class="graph " style="--percentage : 33.32; "></div>
-          <div class="graph " style="--percentage :16.66 ; "></div>
+           <div class="graph " style="--percentage :100 ;">
+             
+           </div>
+          <div class="graph line" style="--percentage :97.5 ; "></div>
+          <div class="graph " style="--percentage :97 ;"
+          [ngClass]="{'fullmark': this.quiz[5].fullmark == true, 'halfmark': this.quiz[5].fullmark == false}">
+          <div
+            class="number number6">6</div>
+          </div>
+          <div class="graph line" style="--percentage :81.82 ; "></div>
+          <div class="graph " style="--percentage : 81.32;"
+          [ngClass]="{'fullmark': this.quiz[4].fullmark == true, 'halfmark': this.quiz[4].fullmark == false}">
+            <div class="number number5">5</div>
+          </div>
+          <div class="graph line" style="--percentage :66 ; "></div>
+          <div class="graph " style="--percentage : 65.5;"
+          [ngClass]="{'fullmark': this.quiz[3].fullmark == true, 'halfmark': this.quiz[3].fullmark == false}">
+            <div class="number number4">4</div>
+          </div>
+          <div class="graph line" style="--percentage :50.48 ; "></div>
+          <div class="graph " style="--percentage : 49.98;"
+          [ngClass]="{'fullmark': this.quiz[2].fullmark == true, 'halfmark': this.quiz[2].fullmark == false}">
+            <div class="number number3">3</div>
+          </div>
+          <div class="graph line" style="--percentage :35.5 ; ">
+
+          </div>
+          <div class="graph " style="--percentage : 35; "
+          [ngClass]="{'fullmark': this.quiz[1].fullmark == true, 'halfmark': this.quiz[1].fullmark == false}">
+            <div class="number number2">2</div>
+          </div>
+           <div class="graph line" style="--percentage :20 ; "></div>
+          <div class="graph " style="--percentage :19.5 ;"
+            [ngClass]="{'fullmark': this.quiz[0].fullmark == true, 'halfmark': this.quiz[0].fullmark == false}">
+            <div class="number number1">1</div>
+          </div>
+          <!-- [ngClass]=" {'fullmark':
+            this.current_ques.question.choices[1].selected== true ? : 'red' :
+            this.current_ques.question.choices[1].selected== false ? red' : null) }"-->
+          <div class="graph line" style="--percentage :3 ; "></div>
+           <div class="graph" id="color" style="--percentage :0.5"> </div>
+          <div class="semicircle"></div>
+          <div class="semicircle1"></div>
           <div class="scoreTxt">
              {{marks}} / 600
           </div>
+          <div class="svg1">
+          <svg>
+          <polygon points="0,00 -40,52 52,100 52,4" fill="#e7eef4" stroke="none" />
+          </svg>
+          </div>
+          <div class="svg2">
+            <svg>
+              <polygon points="0,4 0,60 60,100 60,0" fill="#e7eef4" stroke="none" />
+            </svg>
+          </div>
           <!-- <div class="needle triangle" [style.transform]="'rotate(' + deg[current_ques_no] + 'deg)'" -->
-            <div class="needle triangle"  [style.transform]="'rotate(' + (marks / 600) * 186 +'deg)'"><img src="../../assets/images/needle.svg" alt=""></div>
+            <div class="needle triangle"  [style.transform]="'rotate(' + (marks / 600) * 182 +'deg)'"><img src="../../assets/images/needle.svg" alt=""></div>
         </div>
 
       </div>
 
     </div>
+    <div class="lastpage">
     <div *ngIf="result_page">
-<<<<<<< HEAD
-      Your Percentage : {{percentage}}%
-=======
-
-      Your Percentage : {{percentage | number : '1.1-1'}}%
->>>>>>> bbe44be5e283ab2f68d5d506c56169972b4f5f90
+    <h2>Result</h2>
 
       <div *ngIf="correct">
         <p>
@@ -82,6 +125,7 @@
         <!-- <a href="/page5"> Replay</a> -->
         <div class="submit" (click)="replay()">Replay</div>
       </div>
+    </div>
     </div>
   </div>
 </div>

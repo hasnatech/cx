@@ -16,7 +16,7 @@
 }
 
 .choices {
- // display: flex;
+  // display: flex;
 
   .choose {
     //flex: 1;
@@ -156,6 +156,7 @@
 .buttons {
   position: relative;
   //border: 2px solid red;
+  margin-top: -20px;
 }
 
 .submit {
@@ -177,10 +178,10 @@
 }
 
 
-.points{
+.points {
   position: absolute;
   bottom: 0%;
-  right: calc(50% - 250px);
+  right: calc(50% - 150px);
 }
 
 .replay {
@@ -235,8 +236,8 @@
 
 
 .multi-graph {
-  width: 300px;
-  height: 150px;
+  width: 304px;
+  height: 154px;
   position: relative;
   color: #fff;
   font-size: 22px;
@@ -247,11 +248,12 @@
   overflow: hidden;
   box-sizing: border-box;
 
+
   &:before {
     content: '';
     width: 300px;
-    height: 150px;
-    border: 50px solid rgba(0, 0, 0, .15);
+    height: 154px;
+    border: 50px solid #fff(0, 0, 0, .15);
     border-bottom: none;
     position: absolute;
     box-sizing: border-box;
@@ -259,21 +261,90 @@
     border-radius: 300px 300px 0 0;
     left: 0;
     top: 0;
+
+  }
+
+  .semicircle {
+    z-index: 5;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 110px;
+    width: 200px;
+    border-radius: 150px 150px 0 0;
+    background-color: #fff;
+    border: 2px solid $secondary;
+
+  }
+
+  .svg1 {
+    position: absolute;
+    z-index: 6;
+    top: 92%;
+    left: 1px;
+  }
+
+  .svg2 {
+    position: absolute;
+    z-index: 6;
+    top: 92%;
+    left: 83%;
+  }
+
+  .semicircle1 {
+    z-index: 6;
+    position: absolute;
+    top: 70%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    height: 207px;
+    width: 296px;
+    border-radius: 150px 150px 0 0;
+    background-color: transparent;
+    border: 2px solid $secondary;
+
   }
 
   .graph {
     width: 300px;
     height: 150px;
-    border: 50px solid #CCD4E5;
-    &:nth-child(even){
-      border-color: #E3E6F0;
+    border: 50px solid #fff;
+    margin-left: 2px;
+
+    /*  &:nth-child(13) {
+      border-color: $primary;
     }
-    &.full{
+    &:nth-child(11) {
+      border-color: $secondary;
+    }
+    &:nth-child(9) {
+      border-color: $tertiary;
+    }
+    &:nth-child(7 ){
+      border-color: #868686;
+    }
+     &:nth-child(5) {
+       border-color: #002d44;
+     }
+     &:nth-child(3) {
+       border-color: #658D1B;
+     }*/
+    &.line {
+      z-index: 5;
+      border: 2px solid $secondary;
+      background: radial-gradient(circle at 50% 0%,
+          currentColor 100%, transparent 40%) 50% 100% / 60% 60% no-repeat;
+    }
+
+    &.full {
       border-color: #2B71A2;
     }
-    &.half{
+
+    &.half {
       border-color: #4B7CAA;
     }
+
     border-top: none;
     position: absolute;
     transform-origin: 50% 0% 0;
@@ -314,6 +385,28 @@
     // }
   }
 
+  .fullmark {
+    border-color: #005f85;
+
+    .number {
+      color: #fff;
+    }
+
+  }
+
+  .halfmark {
+    border-color: #e6eff3;
+
+  }
+
+  .number {
+    position: absolute;
+    color: black;
+    transform: rotate(-90deg);
+    top: 12px;
+    left: -35px;
+  }
+
   .needle {
     bottom: 0;
     left: calc(50% - 117px);
@@ -326,74 +419,92 @@
     width: 117px;
     height: 24px;
   }
+
   .scoreTxt {
     position: absolute;
     bottom: 35px;
-    z-index: 6;
-    color: #333;
-}
+    z-index: 11;
+    color: #fff;
+    text-shadow: 0 0 3px #0000008c;
+  }
 }
 
+.lastpage {
+  margin-top: 50px;
+
+  h2 {
+    color: $primary;
+  }
+}
 
 @include sm {
   .content {
     padding: 0px 20px;
-    .choose{
+
+    .choose {
       margin: 30px;
-       .choice {
-         padding: 0;
-         padding-left: 20px;
-       }
 
-       .submit {
-         margin-left: 35%;
-       }
+      .choice {
+        padding: 0;
+        padding-left: 20px;
+      }
 
-       .rad {
-         margin-bottom: 0px;
-         margin-top: 20px;
-       }
+      .submit {
+        margin-left: 35%;
+      }
 
-       .question {
-         margin-bottom: 60px;
-       }
-       }
+      .rad {
+        margin-bottom: 0px;
+        margin-top: 20px;
+      }
 
-       .points {
-         top: 32%;
-         right: 0%;
-         font-size: 16px;
-         font-weight: 400;
+      .question {
+        margin-bottom: 60px;
+      }
+    }
+
+    .points {
+      top: 32%;
+      right: 0%;
+      font-size: 16px;
+      font-weight: 400;
     }
   }
 }
 
 @include md {
-  .section{
+  .section {
     margin-right: 30px;
   }
+
   .content {
     padding: 0px 20px;
-      .choose {
-        margin: 30px;
-      }
-      .choice{
-        padding: 0;
-        padding-left: 20px;
-      }
-      .submit{
-        margin-left: 35%;
-      }
-      .rad{
+
+    .choose {
+      margin: 30px;
+    }
+
+    .choice {
+      padding: 0;
+      padding-left: 20px;
+    }
+
+    .submit {
+      margin-left: 35%;
+    }
+
+    .rad {
       margin-bottom: 0px;
-        margin-top: 20px;
-      }
-      .question{
-        margin-bottom: 60px;
-      }
+      margin-top: 20px;
+    }
+
+    .question {
+      margin-bottom: 60px;
+    }
   }
-  .points{
-    top:32%;
+
+  .points {
+    top: 32%;
     right: 0%;
     font-size: 16px;
     font-weight: 400;

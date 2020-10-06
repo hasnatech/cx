@@ -28,7 +28,7 @@ export class AnimatedtextComponent implements AfterViewInit {
     const ease = 'Back.easeOut.config(1.7)';
     const tl = new TimelineMax();
 
-    tl.fromTo(bracketPanel, speed, { opacity: 0, ease: ease }, { opacity: 1 }, 1);
+    tl.fromTo(bracketPanel, { opacity: 0, ease: ease }, { duration:speed, opacity: 1 }, 1);
     tl.fromTo(leftBracket, speed, { opacity: 0, ease: ease }, { opacity: 1 }, 1);
     tl.fromTo(rightBracket, speed, { opacity: 0, ease: ease }, { opacity: 1 }, 1);
     tl.fromTo(text, speed, { opacity: 0, ease: ease }, { opacity: 1, ease: ease }, 2);

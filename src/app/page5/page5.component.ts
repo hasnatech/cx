@@ -8,6 +8,7 @@ import { AnimatedtextComponent } from '../common/animatedtext/animatedtext.compo
   styleUrls: ['./page5.component.scss']
 })
 export class Page5Component implements AfterViewInit {
+
   try = false;
   ishidden = true;
   isnext = true;
@@ -251,7 +252,7 @@ back to you to ensure we can change the outage window, so your customer is not i
         ]
       }
     },
-   
+
   ]
 
   ngAfterViewInit(): void {
@@ -276,7 +277,6 @@ back to you to ensure we can change the outage window, so your customer is not i
 
   check(i) {
     this.current_ques.selected = i;
-    console.log(this.current_ques.selected)
     this.ishidden = true;
     this.isnext = false;
   }
@@ -287,6 +287,9 @@ back to you to ensure we can change the outage window, so your customer is not i
     this.isnext = true;
     this.ishidden = false;
     this.disabled = true;
+    /*if (this.marks == 100) {
+      document.getElementById("color").style.borderColor = "red";
+    }*/
   }
 
   next() {
@@ -317,11 +320,15 @@ back to you to ensure we can change the outage window, so your customer is not i
   }
 
   validateSingle(current_ques) {
+
     if (this.current_ques.question.choices[this.current_ques.selected].correct == "true") {
       this.marks = this.marks + 100;
+      this.current_ques.fullmark = true;
     }
     else {
       this.marks = this.marks + 50;
+      this.current_ques.fullmark = false;
+
     }
   }
 
