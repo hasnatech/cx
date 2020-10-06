@@ -14,14 +14,7 @@ export class AppComponent {
   touched = true;
 
   constructor(public service: MainService, private router: Router) {
-
-  }
-  ngOnInit() {
     this.pagenumber = Number(this.getCookie('currentPage'));
-    /*this.httpClient.get("assets/json/data.json").subscribe(data => {
-      console.log(data);
-      this.products = data;
-    })*/
   }
 
   next() {
@@ -29,23 +22,18 @@ export class AppComponent {
       this.pagenumber++;
       this.router.navigateByUrl('/page' + this.pagenumber);
     }
-
-
-    if (this.pagenumber == 5) {
-      this.touched = true;
-    }
     this.setCookie('currentPage', this.pagenumber.toString());
   }
 
   previous() {
     this.pagenumber--;
     this.router.navigateByUrl('/page' + this.pagenumber);
-    if (this.pagenumber == 0) {
+    if (this.pagenumber === 0) {
       this.clicked = true;
-      this.router.navigateByUrl('/home')
-      this.pagenumber = 1
+      this.router.navigateByUrl('/home');
+      this.pagenumber = 1;
     }
-    if (this.pagenumber != 5) {
+    if (this.pagenumber !== 5) {
       this.touched = true;
     }
     this.setCookie('currentPage', this.pagenumber.toString());

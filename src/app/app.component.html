@@ -1,9 +1,10 @@
 <div class="flex fcenter fullheight">
   <div class="pagecontent">
-    <div class="header">
+    <div class="header" *ngIf="router.url !== '/' && router.url !== '/home'">
       <div class="title">Introduction to Empathy</div>
     </div>
-    <div class="pagedata" [ngClass]="{'fullheight' : router.url === '/home'}">
+    <div class="pagedata" [ngClass]="{'fullheight' : router.url === '/home' || router.url === '/'}"
+     >
       <router-outlet></router-outlet>
     </div>
 

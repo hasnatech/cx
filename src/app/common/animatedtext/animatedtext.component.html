@@ -1,9 +1,14 @@
-<div class="type-{{type}}">
+<div id="{{textId}}" class="type-{{type}}">
   <div class="cornersButton">
     <div class="corWrapper">
       <div class="corButton">
         <div class='corners left'></div>
-        <div class="text" [innerHTML]="data"></div>
+        <div *ngIf="font != 2">
+          <div class="text" [innerHTML]="data"></div>
+        </div>
+        <div *ngIf="font == 2">
+          <div class="text font-{{font}}" [innerHTML]="data"></div>
+        </div>
         <div class="corners right"></div>
       </div>
     </div>

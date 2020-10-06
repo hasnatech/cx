@@ -5,16 +5,20 @@ import { AfterViewInit, Component, OnInit } from '@angular/core';
   templateUrl: './page4.component.html',
   styleUrls: ['./page4.component.scss']
 })
-export class Page4Component implements AfterViewInit {
+export class Page4Component implements OnInit {
+//start = false
+ 
+  public showContent = false;
+  public showContent1 = true;
+ 
+  constructor() {
+    setInterval(() => this.showContent = true, 5000);
+    
+   }
 
-  show = 0;
-
-  constructor() { }
-
-  ngAfterViewInit(): void {
-    setTimeout(() => {
-      this.show = 1;
-    }, 2000);
+  ngOnInit(){
+    
+    
   }
 
 
@@ -26,4 +30,6 @@ situations. Remember, empathy is a key element to creating great client experien
 <li>Choose the option you feel is the most empathic response to the scenario.</li>
 </ul>
 `
+
+
 }

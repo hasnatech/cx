@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-
+import { TimelineMax } from "gsap";
+import { AnimatedtextComponent } from '../common/animatedtext/animatedtext.component';
 @Component({
   selector: 'app-page5',
   templateUrl: './page5.component.html',
   styleUrls: ['./page5.component.scss']
 })
-export class Page5Component implements OnInit {
+export class Page5Component implements AfterViewInit {
   try = false;
   ishidden = true;
   isnext = true;
@@ -20,27 +21,33 @@ export class Page5Component implements OnInit {
   selected_ques: any;
   item: any;
   result_page;
+  marks: number = 0;
   percentage: number;
   value: any;
-  constructor(private router: Router) {
+  correct = false;
+  wrong = false;
+  current_no = 1;
+  deg = [
+    -6, 24, 54, 88, 120, 154, 186
+  ];
+  @ViewChild('animatedText', { static: false }) animText: AnimatedtextComponent;
+  constructor(private router: Router, private cdr: ChangeDetectorRef) {
 
   }
+
 
   quiz: any = [
     {
       "type": "single_choice",
       "question": {
-        "content": `Client: I keep getting disconnected from my Teams meetings today. Half of my meeting have been negatively impacted. This is really
-frustrating! Can you help me?`,
+        "content": `I keep getting disconnected from my Teams meetings today. Half of my meeting have been negatively impacted. 
+        This is really frustrating! Can you help me?`,
         "selected": "0",
         "choices": [
           {
-            "content": `Empathic Response: I can understand the frustration. There has been a server outage and the 
-            server team is working on ﬁxing it. I've just sent them a message about your issue, and I am expecting to hear
-            back from them within a couple of hours, but either way, I'll follow up with you by 2 pm with an update.
-
-`,
-            "correct": "true",
+            "content": `I am sorry that is not something I can help you with. Please call 999-999-9999 to speak 
+            to a representative from the server team. `,
+            "correct": "false",
             "feedback": [
               {
                 "correct": "",
@@ -49,10 +56,10 @@ frustrating! Can you help me?`,
             ]
           },
           {
-            "content": `Empathic Response: I can understand the frustration. There has been a sewer outage and the server
-team is working on ﬁxing it. I've just sent them a message about your issue, and I am expecting to hear
-back from them within a couple of hours, but either way, I'll follow up with you by 2 pm with an update.`,
-            "correct": "false",
+            "content": `I can understand the frustration. There has been a server outage and the server team is working on 
+            fixing it. I’ve just sent them a message about your issue, and I am expecting to 
+            hear back from them within a couple of hours, but either way, I’ll follow up with you by 2 pm with an update.`,
+            "correct": "true",
             "feedback": [
               {
                 "correct": "",
@@ -70,12 +77,15 @@ back from them within a couple of hours, but either way, I'll follow up with you
     {
       "type": "single_choice",
       "question": {
-        "content": `Empathy is a critical component to serving our clients and building relationships as we see our 
-        clients needs and pain points from their perspective.?`,
+        "content": `Hi, I am a Project Manager and I would like to cancel a project in Clarizen (project management software). 
+        I’ve tried, but I cannot find where to do that. Can you explain how I can do that?`,
         "selected": "0",
         "choices": [
           {
-            "content": `Empathy is awareness of other’s feelings, needs, and concerns.`,
+            "content": `Sure, I will help you with that. Sometimes it is difficult to find these detailed instructions. 
+            Project managers have access to cancel a project by updating the Project Execution Status to "Cancelled". 
+            Here is what you need to do. First, open the project and then select "Actions" --> "Update Status" 
+            then cancel. Why don’t you try it out to ensure this works for you?  `,
             "correct": "true",
             "feedback": [
               {
@@ -85,7 +95,8 @@ back from them within a couple of hours, but either way, I'll follow up with you
             ]
           },
           {
-            "content": `What is empathy? and why empathy matters at workplace?`,
+            "content": `As a Project Manager, you can just update the status & if this does not work, review the PMO 
+            documents for a job aid or please submit a General Issue Global IT ticket.`,
             "correct": "false",
             "feedback": [
               {
@@ -103,17 +114,13 @@ back from them within a couple of hours, but either way, I'll follow up with you
     {
       "type": "single_choice",
       "question": {
-        "content": `Client: I keep getting disconnected from my Teams meetings today. Half of my meeting have been negatively impacted. This is really
-frustrating! Can you help me?`,
+        "content": `Our systems have been down since this morning and we’re unable to process shipping from our plant. 
+        Please Help!`,
         "selected": "0",
         "choices": [
           {
-            "content": `Empathic Response: I can understand the frustration. There has been a server outage and the 
-            server team is working on ﬁxing it. I've just sent them a message about your issue, and I am expecting to hear
-            back from them within a couple of hours, but either way, I'll follow up with you by 2 pm with an update.
-
-`,
-            "correct": "true",
+            "content": `Yes, there has been a system failure and the team is working on getting it resolved as soon as they can.`,
+            "correct": "false",
             "feedback": [
               {
                 "correct": "",
@@ -122,10 +129,11 @@ frustrating! Can you help me?`,
             ]
           },
           {
-            "content": `Empathic Response: I can understand the frustration. There has been a sewer outage and the server
-team is working on ﬁxing it. I've just sent them a message about your issue, and I am expecting to hear
-back from them within a couple of hours, but either way, I'll follow up with you by 2 pm with an update.`,
-            "correct": "false",
+            "content": `We are sorry for the inconvenience and we are working to restore service.  
+            I do have an update I can share with you. We have replaced the hardware and 40% of the user 
+            accounts have been restored and are back online. We are continuing to restore the remaining 
+            accounts and we estimate they will be available by 3 pm.`,
+            "correct": "true",
             "feedback": [
               {
                 "correct": "",
@@ -137,102 +145,115 @@ back from them within a couple of hours, but either way, I'll follow up with you
         ]
       }
     },
+
+
+    {
+      "type": "single_choice",
+      "question": {
+        "content": `Hi, I am not able to access any of my applications. I keep getting a weird 500 error each time. Can this be fixed?`,
+        "selected": "0",
+        "choices": [
+          {
+            "content": `Yes, and we are working to fix it. You will get a system notification once the servers are up and running.`,
+            "correct": "false",
+            "feedback": [
+              {
+                "correct": "",
+                "incorrect": ""
+              }
+            ]
+          },
+          {
+            "content": `Yes, those error messages can be confusing so let me help explain what is happening. We have 
+            identified a problem with these applications and our team is hard at work in fixing the problem. We should 
+            be up, in no more than 2 hours. We apologize for the inconvenience! Thank you for your patience!`,
+            "correct": "true",
+            "feedback": [
+              {
+                "correct": "",
+                "incorrect": ""
+              }
+            ]
+          }
+
+        ]
+      }
+    },
+
+    {
+      "type": "single_choice",
+      "question": {
+        "content": `Hi, I am a little confused about the ticket I submitted, and no one is calling me back. 
+        Can you please let me know the status of ticket INC12345678?`,
+        "selected": "0",
+        "choices": [
+          {
+            "content": `You can actually do that yourself. Go to MyGlobal IT portal for further information on your ticket.`,
+            "correct": "false",
+            "feedback": [
+              {
+                "correct": "",
+                "incorrect": ""
+              }
+            ]
+          },
+          {
+            "content": `I apologize that no one has responded to you, but I am looking at your open ticket right now. 
+            I can see that we will need to dig a bit deeper. I will contact the assigned analyst and ask them to get 
+            back to you promptly.  `,
+            "correct": "true",
+            "feedback": [
+              {
+                "correct": "",
+                "incorrect": ""
+              }
+            ]
+          }
+
+        ]
+      }
+    },
+
 
   ]
 
 
-
-  /*selectedDay: string = '';
-  days: any = [{
-    text: `Empathic Response: I can understand the frustration. There has been a server outage and the server
-team is working on ﬁxing it.I've just sent them a message about your issue. and I am expecting to hear
-back from them within a couple of hours, but either way, I'll follow up with you by 2 pm with an update.`,
-    value:"true"
-  },
-  {
-    text: `Empathic Response: I can understand the frustration. There has been a server outage and the server
-team is working on ﬁxing it. I've just sent them a message about your issue. and I am expecting to hear
-back from them within a couple of hours, but either way, I'll follow up with you by 2 pm with an update.
-
-`,
-    value: "false"
-    }
-    
-  ];
-
-  //event handler for the radio button's change event
-  radioChangeHandler(event: any,i) {
-    //update the ui
-    
+  ngAfterViewInit(): void {
+    this.show_question(0);
+    this.cdr.detectChanges();
   }
-*/
-  ngOnInit() {
-    this.show_question(0)
-  }
-  /*data =`Client: I keep getting disconnected from my Teams meetings today. Half of my meeting have been negatively impacted. This
-is really
-frustrating! Can you help me?`
-
-
- 
-marks=0;
-  submit(){
-    if(this.selectedDay == "true"){
-     this.marks= this.marks +100;
-    }
-
-    if (this.selectedDay == "false") {
-      this.marks = this.marks + 50;
-    }
-  }
-}
-
-*/
-
-
-
-
-
 
   show_choice(i) {
     this.selected_ques_no = i;
     this.selected_ques = this.quiz[i];
-
   }
 
   show_question(i) {
     this.current_ques_no = i;
-    //console.log(this.value)
     this.current_ques = this.quiz[i];
     this.ishidden = true;
+    console.log(this.animText);
+    if (this.animText !== undefined) {
+      this.animText.animate();
+    }
   }
-
 
   check(i) {
     this.current_ques.selected = i;
     console.log(this.current_ques.selected)
-    // console.log(this.current_ques.question[0].selected)
     this.ishidden = true;
     this.isnext = false;
-    // console.log(this.current_ques_no)
-    // console.log(this.current_no);
-    //console.log( this.current_ques.selected)
   }
 
 
-  marks: number = 0;
-
   submit() {
-    //validate
     this.validateSingle(this.current_ques);
     this.isnext = true;
     this.ishidden = false;
     this.disabled = true;
-
   }
-  current_no = 1;
-  next() {
 
+  next() {
     this.current_ques_no++;
     if (this.current_ques_no < this.quiz.length) {
       this.current_no++;
@@ -249,35 +270,28 @@ marks=0;
     this.current_ques = undefined;
     this.result_page = true;
 
-    this.percentage = this.marks / this.current_ques_no * 100;
-    if (this.percentage >= 75) {
+    this.percentage = (this.marks / this.current_ques_no * 100) / 100;
+    if (this.percentage == 100) {
       this.try = true;
+      this.correct = true;
+    }
+    else {
+      this.wrong = true
     }
   }
 
-
-
   validateSingle(current_ques) {
-
-    //console.log(this.current_ques.selected, this.current_ques.question.choices[this.current_ques.selected].correct);
     if (this.current_ques.question.choices[this.current_ques.selected].correct == "true") {
       this.marks = this.marks + 100;
     }
     else {
       this.marks = this.marks + 50;
     }
-
-
-    /* switch (item.type) {
-       case 'single_choice':
-         
-         break;
-   
-   
-       default:
-         break;*/
   }
 
-
-
+  replay() {
+    this.show_question(0);
+    this.marks = 0;
+    this.result_page = false;
+  }
 }

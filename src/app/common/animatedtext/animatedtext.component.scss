@@ -8,7 +8,7 @@
     display: inline-block;
     vertical-align: middle;
     position: relative;
-    max-width: 600px;
+    max-width: 100%;
     margin: 1em;
     font-size: 18px;
     // background-color: yellow;
@@ -21,7 +21,15 @@
 
     color: #000000;
   }
- 
+ .corButton .font-2 {
+
+ opacity: 0;
+ display: block;
+ padding: 1em;
+
+ color: #000000;
+ font-size: 18px;
+ }
   .corButton .corners {
     position: absolute;
     height: 100%;
