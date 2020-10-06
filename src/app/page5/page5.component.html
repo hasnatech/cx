@@ -45,7 +45,7 @@
           <div class="graph " style="--percentage : 33.32; "></div>
           <div class="graph " style="--percentage :16.66 ; "></div>
           <div class="scoreTxt">
-             {{marks}} / 500
+             {{marks}} / 600
           </div>
           <!-- <div class="needle triangle" [style.transform]="'rotate(' + deg[current_ques_no] + 'deg)'" -->
             <div class="needle triangle"  [style.transform]="'rotate(' + (marks / 600) * 186 +'deg)'"><img src="../../assets/images/needle.svg" alt=""></div>
@@ -55,7 +55,12 @@
 
     </div>
     <div *ngIf="result_page">
+<<<<<<< HEAD
       Your Percentage : {{percentage}}%
+=======
+
+      Your Percentage : {{percentage | number : '1.1-1'}}%
+>>>>>>> bbe44be5e283ab2f68d5d506c56169972b4f5f90
 
       <div *ngIf="correct">
         <p>
