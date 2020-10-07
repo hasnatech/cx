@@ -1,5 +1,6 @@
-import { AfterViewInit, Component} from '@angular/core';
-import { TimelineMax } from "gsap";
+import { AfterViewInit, Component } from '@angular/core';
+import { gsap, TimelineMax } from "gsap";
+import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 
 @Component({
   selector: 'app-page1',
@@ -8,14 +9,18 @@ import { TimelineMax } from "gsap";
 })
 export class Page1Component implements AfterViewInit {
 
-  constructor() { }
+  constructor() {
+  
+  }
 
   ngAfterViewInit(): void {
+    gsap.registerPlugin(CSSRulePlugin);
     const right = document.getElementById('right_img');
     const speed = 0.5;
     const ease = "Back.easeOut.config(1.7)";
     let tl = new TimelineMax();
-    tl.fromTo(right, speed, { x: 200, opacity: 0, ease: ease }, { x: 0, opacity: 1, delay: 2 }, 0);
+    tl.fromTo(right, { x: 200, opacity: 0, ease: ease }, { duration: speed, x: 0, opacity: 1, delay: 2 }, 0);
+    console.log("first Page")
   }
   data = `<h2>What is empathy? and<br>why empathy matters at workplace?</h2>`
 }

@@ -41,14 +41,14 @@
 
     .prev {
       cursor: pointer;
-      width: 255px;
+      min-width: 255px;
       text-align: center;
       font-size: 30px;
       // padding-top: 15px;
       // padding-right: 20px;
       background-image: url('../assets/images/bottom_prev1.png');
       background-repeat: no-repeat;
-      background-size: 100%;
+      background-size: cover;
       color: #fff;
       display: flex;
       align-items: center;
@@ -64,7 +64,7 @@
     .nxt {
       cursor: pointer;
 
-      width: 255px;
+      min-width: 255px;
       text-align: center;
       font-size: 30px;
       //height: 100%;
@@ -73,7 +73,7 @@
       background-image: url('../assets/images/bottom_next1.png');
       background-repeat: no-repeat;
       color: #fff;
-      background-size: 100%;
+      background-size: cover;
       display: flex;
       align-items: center;
       justify-content: center;

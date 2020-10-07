@@ -7,19 +7,22 @@
 }
 
 .content {
-  padding: 200px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 10px;
   text-align: left;
   padding-top: 0px;
   font-family: Arial,
     Helvetica,
     sans-serif;
 }
-
+.question{
+  margin-bottom: -10px;
+}
 .choices {
-  // display: flex;
-
+  margin: 0 auto;
+  max-width: 1000px;
   .choose {
-    //flex: 1;
     margin: 0px 20px;
     margin-top: 20px;
     animation: anim 2s forwards;
@@ -45,20 +48,19 @@
 
   display: flex;
   align-items: center;
-  // justify-content: left;
-
   box-shadow: 0px 0px 15px #0000002E;
   padding: 0px 15px;
   margin: 0 5px;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
   border-radius: 20px;
   cursor: pointer;
   transition: all 0.1s ease-in-out;
 
-
+  background-color: #fff;
 
 
 }
+
 
 .rad:hover {
   //box-shadow: 0px 0px 15px $primary;
@@ -66,8 +68,19 @@
   //width: 100%;
   padding: 0px 20px;
   margin: 0 0;
-  margin-bottom: 50px;
+  margin-bottom: 30px;
 
+}
+
+.fullrad {
+  background-color: $primary;
+  .choice{
+    color: #fff;
+  }
+}
+
+.halfrad {
+  background-color: #e6eff3;
 }
 
 .container {
@@ -155,8 +168,7 @@
 
 .buttons {
   position: relative;
-  //border: 2px solid red;
-  margin-top: -20px;
+
 }
 
 .submit {
@@ -386,16 +398,44 @@
   }
 
   .fullmark {
-    border-color: #005f85;
+    border-color: $primary;
+    margin-left: 3px;
+    margin-top: -2px;
+   
 
     .number {
       color: #fff;
     }
 
   }
+  .fullmark:nth-child(13) {
+    margin-left: 3px;
+    margin-top: 0px;
+  }
+   .fullmark:nth-child(11) {
+     margin-left: 3px;
+     margin-top: 0px;
+   }
+.fullmark:nth-child(7){
+  margin-left: 3px;
+  margin-top: 0px;
+
+  
+}
+.fullmark:nth-child(5) {
+ margin-left: 3px;
+ margin-top: 0px;
+}
+.fullmark:nth-child(3) {
+  margin-left: 2px;
+  margin-top: 1px;
+
+
+}
 
   .halfmark {
     border-color: #e6eff3;
+    margin-left: 3px;
 
   }
 
@@ -403,8 +443,8 @@
     position: absolute;
     color: black;
     transform: rotate(-90deg);
-    top: 12px;
-    left: -35px;
+    top: 19px;
+    left: -28px;
   }
 
   .needle {
@@ -434,6 +474,11 @@
 
   h2 {
     color: $primary;
+  }
+
+  p {
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 18px;
   }
 }
 

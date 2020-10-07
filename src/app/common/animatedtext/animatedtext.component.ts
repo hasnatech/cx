@@ -1,5 +1,6 @@
 import { AfterViewInit, Component, Input, OnInit } from '@angular/core';
-import { TimelineMax } from "gsap";
+import { gsap,TimelineMax } from "gsap";
+import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 
 @Component({
   selector: 'app-animatedtext',
@@ -15,6 +16,7 @@ export class AnimatedtextComponent implements AfterViewInit {
   constructor() { }
 
   ngAfterViewInit(): void {
+    gsap.registerPlugin(CSSRulePlugin);
     this.animate();
   }
 
@@ -28,14 +30,14 @@ export class AnimatedtextComponent implements AfterViewInit {
     const ease = 'Back.easeOut.config(1.7)';
     const tl = new TimelineMax();
 
-    tl.fromTo(bracketPanel, { opacity: 0, ease: ease }, { duration:speed, opacity: 1 }, 1);
-    tl.fromTo(leftBracket, speed, { opacity: 0, ease: ease }, { opacity: 1 }, 1);
-    tl.fromTo(rightBracket, speed, { opacity: 0, ease: ease }, { opacity: 1 }, 1);
-    tl.fromTo(text, speed, { opacity: 0, ease: ease }, { opacity: 1, ease: ease }, 2);
-    tl.fromTo(leftBracket, speed, { left: '40%', ease: ease }, { left: 0, ease: ease }, 2);
-    tl.fromTo(rightBracket, speed, { right: '40%', ease: ease }, { right: 24, ease: ease }, 2);
+    tl.fromTo(bracketPanel, { opacity: 0, ease: ease }, { duration: speed, opacity: 1 }, 1);
+    tl.fromTo(leftBracket, { opacity: 0, ease: ease }, { duration: speed, opacity: 1 }, 1);
+    tl.fromTo(rightBracket, { opacity: 0, ease: ease }, { duration: speed, opacity: 1 }, 1);
+    tl.fromTo(text, { opacity: 0, ease: ease }, { duration: speed, opacity: 1, ease: ease }, 2);
+    tl.fromTo(leftBracket, { left: '40%', ease: ease }, { duration: speed, left: 0, ease: ease }, 2);
+    tl.fromTo(rightBracket, { right: '40%', ease: ease }, { duration: speed, right: 24, ease: ease }, 2);
 
-    tl.to(leftBracket, speed, { opacity: 0, ease: ease }, 3);
-    tl.to(rightBracket, speed, { opacity: 0, ease: ease }, 3);
+    tl.to(leftBracket, { opacity: 0, ease: ease }, 3);
+    tl.to(rightBracket, { opacity: 0, ease: ease }, 3);
   }
 }

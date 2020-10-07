@@ -6,8 +6,9 @@
         <app-animatedtext #animatedText textId="ques" [(data)]="this.current_ques.question.content"></app-animatedtext>
       </div>
       <div class="choices">
-        <div *ngFor="let ans of this.current_ques.question.choices;let i=index" class="choose" id="choose">
-          <div class="rad">
+        <div *ngFor="let ans of this.current_ques.question.choices;let i=index" class="choose">
+          <!--{{ans.correct}}-->
+          <div class="rad" [ngClass]="{'halfrad': getChoiceSelection(ans, i), 'fullrad': getChoiceSelection(ans, i) == false}">
             <p class="correct">
               <label class="container">
                 <input type="radio" class="radio" name="{{'choices_'+current_ques_no}}" value="{{ans.content}}"
@@ -95,7 +96,7 @@
             </svg>
           </div>
           <!-- <div class="needle triangle" [style.transform]="'rotate(' + deg[current_ques_no] + 'deg)'" -->
-            <div class="needle triangle"  [style.transform]="'rotate(' + (marks / 600) * 182 +'deg)'"><img src="../../assets/images/needle.svg" alt=""></div>
+            <div class="needle triangle"  [style.transform]="'rotate(' + (marks / 600) * 182 +'deg)'"><img src="assets/images/needle.svg" alt=""></div>
         </div>
 
       </div>

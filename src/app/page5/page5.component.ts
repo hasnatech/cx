@@ -1,14 +1,14 @@
 import { AfterViewInit, Component, ChangeDetectorRef, ViewChild } from '@angular/core';
 import { Router } from '@angular/router';
-import { TimelineMax } from "gsap";
 import { AnimatedtextComponent } from '../common/animatedtext/animatedtext.component';
+
 @Component({
   selector: 'app-page5',
   templateUrl: './page5.component.html',
   styleUrls: ['./page5.component.scss']
 })
 export class Page5Component implements AfterViewInit {
-
+  selectedtab = 1;
   try = false;
   ishidden = true;
   isnext = true;
@@ -32,6 +32,7 @@ export class Page5Component implements AfterViewInit {
     -6, 24, 54, 88, 120, 154, 186
   ];
   @ViewChild('animatedText', { static: false }) animText: AnimatedtextComponent;
+  ans: any;
   constructor(private router: Router, private cdr: ChangeDetectorRef) {
 
   }
@@ -279,8 +280,17 @@ back to you to ensure we can change the outage window, so your customer is not i
     this.current_ques.selected = i;
     this.ishidden = true;
     this.isnext = false;
-  }
+    console.log(this.current_ques.selected)
 
+  }
+  getChoiceSelection(ans, i) {
+    if (this.current_ques.selected == i && this.isnext){
+      console.log(ans)
+      return ans.correct == 'false';
+    }
+    //console.log(ans.correct, this.current_ques.selected)
+    
+  }
 
   submit() {
     this.validateSingle(this.current_ques);
@@ -324,10 +334,12 @@ back to you to ensure we can change the outage window, so your customer is not i
     if (this.current_ques.question.choices[this.current_ques.selected].correct == "true") {
       this.marks = this.marks + 100;
       this.current_ques.fullmark = true;
+      this.current_ques.correct = true;
     }
     else {
       this.marks = this.marks + 50;
       this.current_ques.fullmark = false;
+      this.current_ques.correct = false;
 
     }
   }
@@ -336,5 +348,8 @@ back to you to ensure we can change the outage window, so your customer is not i
     this.show_question(0);
     this.marks = 0;
     this.result_page = false;
+    this.quiz.forEach(element => {
+      element.fullmark = undefined
+    });
   }
 }
