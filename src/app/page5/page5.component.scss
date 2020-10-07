@@ -16,12 +16,15 @@
     Helvetica,
     sans-serif;
 }
-.question{
+
+.question {
   margin-bottom: -10px;
 }
+
 .choices {
   margin: 0 auto;
   max-width: 1000px;
+
   .choose {
     margin: 0px 20px;
     margin-top: 20px;
@@ -74,7 +77,8 @@
 
 .fullrad {
   background-color: $primary;
-  .choice{
+
+  .choice {
     color: #fff;
   }
 }
@@ -194,7 +198,23 @@
   position: absolute;
   bottom: 0%;
   right: calc(50% - 150px);
+  animation: pointsanim 2s forwards;
+  animation-delay: 4s;
+  z-index: 99;
+  opacity: 0;
 }
+
+@keyframes pointsanim {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+
 
 .replay {
   text-align: center;
@@ -401,37 +421,42 @@
     border-color: $primary;
     margin-left: 3px;
     margin-top: -2px;
-   
+
 
     .number {
       color: #fff;
     }
 
   }
+
   .fullmark:nth-child(13) {
     margin-left: 3px;
     margin-top: 0px;
   }
-   .fullmark:nth-child(11) {
-     margin-left: 3px;
-     margin-top: 0px;
-   }
-.fullmark:nth-child(7){
-  margin-left: 3px;
-  margin-top: 0px;
 
-  
-}
-.fullmark:nth-child(5) {
- margin-left: 3px;
- margin-top: 0px;
-}
-.fullmark:nth-child(3) {
-  margin-left: 2px;
-  margin-top: 1px;
+  .fullmark:nth-child(11) {
+    margin-left: 3px;
+    margin-top: 0px;
+  }
+
+  .fullmark:nth-child(7) {
+    margin-left: 3px;
+    margin-top: 0px;
 
 
-}
+  }
+
+  .fullmark:nth-child(5) {
+    margin-left: 3px;
+    margin-top: 0px;
+  }
+
+  .fullmark:nth-child(3) {
+    margin-left: 2px;
+    margin-top: 1px;
+
+
+  }
 
   .halfmark {
     border-color: #e6eff3;
@@ -458,7 +483,7 @@
     transition: all 0.5s;
     width: 117px;
     height: 24px;
-  
+
   }
 
   .scoreTxt {
