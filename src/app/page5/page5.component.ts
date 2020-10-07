@@ -349,7 +349,8 @@ back to you to ensure we can change the outage window, so your customer is not i
     this.marks = 0;
     this.result_page = false;
     this.quiz.forEach(element => {
-      element.fullmark = undefined
+      element.fullmark = undefined;
+      element.selected = undefined
     });
   }
 }
