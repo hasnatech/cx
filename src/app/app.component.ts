@@ -9,34 +9,36 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'cx';
   intropage: boolean;
-  pagenumber: number;
+  //pagenumber: number;
   clicked = true;
   touched = true;
 
   constructor(public service: MainService, public router: Router) {
-    this.pagenumber = Number(this.getCookie('currentPage'));
+    
+    this.service.pagenumber = Number(this.getCookie('currentPage'));
+    
   }
 
   next() {
-    if (this.pagenumber < 5) {
-      this.pagenumber++;
-      this.router.navigateByUrl('/page' + this.pagenumber);
+    if (this.service.pagenumber < 5) {
+      this.service.pagenumber++;
+      this.router.navigateByUrl('/page' + this.service.pagenumber);
     }
-    this.setCookie('currentPage', this.pagenumber.toString());
+    this.setCookie('currentPage', this.service.pagenumber.toString());
   }
 
   previous() {
-    this.pagenumber--;
-    this.router.navigateByUrl('/page' + this.pagenumber);
-    if (this.pagenumber === 0) {
+    this.service.pagenumber--;
+    this.router.navigateByUrl('/page' + this.service.pagenumber);
+    if (this.service.pagenumber === 0) {
       this.clicked = true;
       this.router.navigateByUrl('/home');
-      this.pagenumber = 1;
+      this.service.pagenumber = 1;
     }
-    if (this.pagenumber !== 5) {
+    if (this.service.pagenumber !== 5) {
       this.touched = true;
     }
-    this.setCookie('currentPage', this.pagenumber.toString());
+    this.setCookie('currentPage', this.service.pagenumber.toString());
   }
 
 

@@ -5,6 +5,7 @@ import { HttpClient } from "@angular/common/http";
 })
 export class MainService {
   products: any;
+  pagenumber = 1;
 
   constructor(private httpClient: HttpClient) { }
   ngOnInit() {
@@ -12,6 +13,6 @@ export class MainService {
       console.log(data);
       this.products = data;
     })
-}
+  }
 
 }

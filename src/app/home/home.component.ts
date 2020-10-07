@@ -11,7 +11,7 @@ export class HomeComponent implements OnInit {
   data: any;
   products: any;
   pagenumber: number;
-  
+
 
   constructor(public service: MainService, private httpClient: HttpClient, private router: Router) { }
 
@@ -21,11 +21,8 @@ export class HomeComponent implements OnInit {
       this.products = data;
     })
   }
-  start(){
-    setTimeout(() => {
-      this.router.navigateByUrl('/page1');
-     
-    }, 1000);
-    
+  start() {
+    this.service.pagenumber = 1;
+    this.router.navigateByUrl('/page1');
   }
 }
