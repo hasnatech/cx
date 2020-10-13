@@ -1,10 +1,13 @@
 <div class="section">
-       <div class="content">
-        <div class="top">
-           <app-animatedtext *ngIf="showContent1" textId="one" [(data)]="this.data"></app-animatedtext>
-        </div>
-       <div class="bottom">
-          <app-animatedtext *ngIf="showContent" textId="two" [(data)]="this.data1"></app-animatedtext>
-      </div>
-   </div>
+  <div class="content">
+    <div class="top">
+      <app-animatedtext *ngIf="showContent1" textId="one" [(data)]="this.data"></app-animatedtext>
+    </div>
+    <div class="bottom">
+      <app-animatedtext *ngIf="showContent" textId="two" [(data)]="this.data1"></app-animatedtext>
+    </div>
+    
+      <a id="startbtn" class="button" routerLink="/page5">Start Quiz</a>
+    
+  </div>
 </div>

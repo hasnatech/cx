@@ -23,6 +23,7 @@
 
 .choices {
   margin: 0 auto;
+  margin-top: -30px;
   max-width: 1000px;
 
   .choose {
@@ -172,7 +173,9 @@
 
 .buttons {
   position: relative;
-
+  transition-property: top;
+  transition-duration: 0.5s;
+  transition-timing-function: ease-in;
 }
 
 .submit {
@@ -188,6 +191,7 @@
   border-radius: 10px;
   margin: 0 auto;
 
+
   &:active {
     transform: scale(0.96);
   }
@@ -196,7 +200,8 @@
 
 .points {
   position: absolute;
-  bottom: 0%;
+  transform: scale(0.9);
+  bottom: -14px;
   right: calc(50% - 150px);
   animation: pointsanim 2s forwards;
   animation-delay: 4s;
@@ -465,12 +470,14 @@
   }
 
   .number {
+    display: none;
     position: absolute;
     color: black;
     transform: rotate(-90deg);
     top: 19px;
     left: -28px;
   }
+
 
   .needle {
     bottom: 0;
@@ -497,6 +504,7 @@
 
 .lastpage {
   margin-top: 50px;
+  line-height: 30px;
 
   h2 {
     color: $primary;
@@ -579,5 +587,32 @@
     right: 0%;
     font-size: 16px;
     font-weight: 400;
+  }
+}
+
+.qNumber {
+  position: absolute;
+  right: 20px;
+  bottom: 20px;
+  z-index: 1;
+}
+
+.feedback {
+  text-align: center;
+  font-size: 18px;
+  margin: 10px;
+  margin-bottom: 20px;
+  animation: slide 1s ease;
+}
+
+@keyframes slide {
+  from {
+    opacity: 0;
+    //height: 0;
+  }
+
+  to {
+    opacity: 1;
+    //height: auto;
   }
 }

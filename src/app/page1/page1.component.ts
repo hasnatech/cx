@@ -1,6 +1,7 @@
 import { AfterViewInit, Component } from '@angular/core';
 import { gsap, TimelineMax } from "gsap";
 import { CSSRulePlugin } from "gsap/CSSRulePlugin";
+import { MainService } from '../main.service';
 
 @Component({
   selector: 'app-page1',
@@ -9,11 +10,12 @@ import { CSSRulePlugin } from "gsap/CSSRulePlugin";
 })
 export class Page1Component implements AfterViewInit {
 
-  constructor() {
+  constructor(private service: MainService) {
   
   }
 
   ngAfterViewInit(): void {
+    this.service.showNavigation(true);
     gsap.registerPlugin(CSSRulePlugin);
     const right = document.getElementById('right_img');
     const speed = 0.5;

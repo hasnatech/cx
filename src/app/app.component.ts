@@ -9,14 +9,11 @@ import { Router } from '@angular/router';
 export class AppComponent {
   title = 'cx';
   intropage: boolean;
-  //pagenumber: number;
   clicked = true;
   touched = true;
 
   constructor(public service: MainService, public router: Router) {
-    
     this.service.pagenumber = Number(this.getCookie('currentPage'));
-    
   }
 
   next() {

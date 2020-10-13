@@ -31,6 +31,12 @@ export class Page5Component implements AfterViewInit {
   deg = [
     -6, 24, 54, 88, 120, 154, 186
   ];
+  feedback = '';
+  response = {
+    normal: 'Good attempt. You could go for a more empathic response.',
+    empathic: 'Great response!'
+  };
+
   @ViewChild('animatedText', { static: false }) animText: AnimatedtextComponent;
   ans: any;
   constructor(private router: Router, private cdr: ChangeDetectorRef) {
@@ -42,8 +48,8 @@ export class Page5Component implements AfterViewInit {
     {
       "type": "single_choice",
       "question": {
-        "content": `I keep getting disconnected from my Teams meetings today. Half of my meeting have been negatively impacted. 
-        This is really frustrating! Can you help me?`,
+        "content": `I keep getting disconnected from my Teams meetings today. Half of my meetings have been negatively impacted. 
+        This is really frustrating! Can you help me?</p>`,
         "selected": "0",
         "choices": [
           {
@@ -222,7 +228,7 @@ export class Page5Component implements AfterViewInit {
         "content": `Hi, I am the Project Manager for one of the Manufacturing plants here in Cargill. We have
 a scheduled outage this weekend that I need to get changes for. One of our customers put in a
 last-minute order for product and we can no longer take the system down! How can we change
-the outage window? IF we don’t, we will lose money and customer loyalty!`,
+the outage window? If we don’t, we will lose money and customer loyalty!`,
         "selected": "0",
         "choices": [
           {
@@ -258,6 +264,7 @@ back to you to ensure we can change the outage window, so your customer is not i
 
   ngAfterViewInit(): void {
     this.show_question(0);
+    //this.result_page = true;
     this.cdr.detectChanges();
   }
 
@@ -284,12 +291,12 @@ back to you to ensure we can change the outage window, so your customer is not i
 
   }
   getChoiceSelection(ans, i) {
-    if (this.current_ques.selected == i && this.isnext){
+    if (this.current_ques.selected == i && this.isnext) {
       console.log(ans)
       return ans.correct == 'false';
     }
     //console.log(ans.correct, this.current_ques.selected)
-    
+
   }
 
   submit() {
@@ -308,6 +315,7 @@ back to you to ensure we can change the outage window, so your customer is not i
       this.current_no++;
       this.show_question(this.current_ques_no)
     } else {
+      this.current_ques_no--;
       this.showresult();
       this.current_no = 1;
     }
@@ -335,12 +343,13 @@ back to you to ensure we can change the outage window, so your customer is not i
       this.marks = this.marks + 100;
       this.current_ques.fullmark = true;
       this.current_ques.correct = true;
+      this.feedback = this.response.empathic;
     }
     else {
       this.marks = this.marks + 50;
       this.current_ques.fullmark = false;
       this.current_ques.correct = false;
-
+      this.feedback = this.response.normal;
     }
   }
 

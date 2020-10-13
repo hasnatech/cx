@@ -1,6 +1,8 @@
 <div class="section">
   <div class="content">
-
+    <div class="qNumber">
+      Question {{current_ques_no + 1}} of {{quiz.length}}
+    </div>
     <div *ngIf="current_ques != undefined">
       <div class="question">
         <app-animatedtext #animatedText textId="ques" [(data)]="this.current_ques.question.content"></app-animatedtext>
@@ -8,7 +10,8 @@
       <div class="choices">
         <div *ngFor="let ans of this.current_ques.question.choices;let i=index" class="choose">
           <!--{{ans.correct}}-->
-          <div class="rad" [ngClass]="{'halfrad': getChoiceSelection(ans, i), 'fullrad': getChoiceSelection(ans, i) == false}">
+          <div class="rad"
+            [ngClass]="{'halfrad': getChoiceSelection(ans, i), 'fullrad': getChoiceSelection(ans, i) == false}">
             <p class="correct">
               <label class="container">
                 <input type="radio" class="radio" name="{{'choices_'+current_ques_no}}" value="{{ans.content}}"
@@ -20,57 +23,50 @@
         </div>
       </div>
     </div>
+    <div class="feedback" *ngIf="ishidden == false">
+      {{feedback}}
+    </div>
     <div class="buttons">
       <div class="submit" (click)="submit()" *ngIf="isnext == false">Submit</div>
       <div class="submit" (click)="next()" *ngIf="ishidden == false">Next</div>
     </div>
+
     <div class="points">
-      
+
       <!-- <button (click)="current_ques_no = current_ques_no + 1">Score</button> -->
       <div class="score">
-        <!-- <div class="one triangle"><img src="../../assets/images/qb1.svg" alt=""></div>
-        <div class="two triangle"><img src="../../assets/images/qb2.svg" alt=""></div>
-        <div class="three triangle"><img src="../../assets/images/qb3.svg" alt=""></div>
-        <div class="four triangle"><img src="../../assets/images/qb4.svg" alt=""></div>
-        <div class="five triangle"><img src="../../assets/images/qb5.svg" alt=""></div>
-        <div class="six triangle"><img src="../../assets/images/qb6.svg" alt=""></div>
-        <div class="halfCircle triangle"><img src="../../assets/images/halfcircle.png" alt=""></div>
-        <div class="needle triangle"><img src="../../assets/images/needle.svg" alt=""></div> -->
-
 
         <div class="multi-graph">
-           <div class="graph " style="--percentage :100 ;">
-             
-           </div>
+          <div class="graph " style="--percentage :100 ;">
+          </div>
           <div class="graph line" style="--percentage :97.5 ; "></div>
           <div class="graph " style="--percentage :97 ;"
-          [ngClass]="{'fullmark': this.quiz[5].fullmark == true, 'halfmark': this.quiz[5].fullmark == false}">
-          <div
-            class="number number6">6</div>
+            [ngClass]="{'fullmark': this.quiz[5].fullmark == true, 'halfmark': this.quiz[5].fullmark == false}">
+            <div class="number number6">6</div>
           </div>
           <div class="graph line" style="--percentage :81.82 ; "></div>
           <div class="graph " style="--percentage : 81.32;"
-          [ngClass]="{'fullmark': this.quiz[4].fullmark == true, 'halfmark': this.quiz[4].fullmark == false}">
+            [ngClass]="{'fullmark': this.quiz[4].fullmark == true, 'halfmark': this.quiz[4].fullmark == false}">
             <div class="number number5">5</div>
           </div>
           <div class="graph line" style="--percentage :66 ; "></div>
           <div class="graph " style="--percentage : 65.5;"
-          [ngClass]="{'fullmark': this.quiz[3].fullmark == true, 'halfmark': this.quiz[3].fullmark == false}">
+            [ngClass]="{'fullmark': this.quiz[3].fullmark == true, 'halfmark': this.quiz[3].fullmark == false}">
             <div class="number number4">4</div>
           </div>
           <div class="graph line" style="--percentage :50.48 ; "></div>
           <div class="graph " style="--percentage : 49.98;"
-          [ngClass]="{'fullmark': this.quiz[2].fullmark == true, 'halfmark': this.quiz[2].fullmark == false}">
+            [ngClass]="{'fullmark': this.quiz[2].fullmark == true, 'halfmark': this.quiz[2].fullmark == false}">
             <div class="number number3">3</div>
           </div>
           <div class="graph line" style="--percentage :35.5 ; ">
 
           </div>
           <div class="graph " style="--percentage : 35; "
-          [ngClass]="{'fullmark': this.quiz[1].fullmark == true, 'halfmark': this.quiz[1].fullmark == false}">
+            [ngClass]="{'fullmark': this.quiz[1].fullmark == true, 'halfmark': this.quiz[1].fullmark == false}">
             <div class="number number2">2</div>
           </div>
-           <div class="graph line" style="--percentage :20 ; "></div>
+          <div class="graph line" style="--percentage :20 ; "></div>
           <div class="graph " style="--percentage :19.5 ;"
             [ngClass]="{'fullmark': this.quiz[0].fullmark == true, 'halfmark': this.quiz[0].fullmark == false}">
             <div class="number number1">1</div>
@@ -79,16 +75,16 @@
             this.current_ques.question.choices[1].selected== true ? : 'red' :
             this.current_ques.question.choices[1].selected== false ? red' : null) }"-->
           <div class="graph line" style="--percentage :3 ; "></div>
-           <div class="graph" id="color" style="--percentage :0.5"> </div>
+          <div class="graph" id="color" style="--percentage :0.5"> </div>
           <div class="semicircle"></div>
           <div class="semicircle1"></div>
           <div class="scoreTxt">
-             {{marks}} / 600
+            {{marks}} / 600
           </div>
           <div class="svg1">
-          <svg>
-          <polygon points="0,00 -40,52 52,100 52,4" fill="#e7eef4" stroke="none" />
-          </svg>
+            <svg>
+              <polygon points="0,00 -40,52 52,100 52,4" fill="#e7eef4" stroke="none" />
+            </svg>
           </div>
           <div class="svg2">
             <svg>
@@ -96,37 +92,44 @@
             </svg>
           </div>
           <!-- <div class="needle triangle" [style.transform]="'rotate(' + deg[current_ques_no] + 'deg)'" -->
-            <div class="needle triangle"  [style.transform]="'rotate(' + (marks / 600) * 182 +'deg)'"><img src="assets/images/needle.png" alt=""></div>
+          <div class="needle triangle" [style.transform]="'rotate(' + (marks / 600) * 182 +'deg)'"><img
+              src="assets/images/needle.png" alt=""></div>
         </div>
 
       </div>
 
     </div>
     <div class="lastpage">
-    <div *ngIf="result_page">
-    <h2>Result</h2>
-
-      <div *ngIf="correct">
-        <p>
-          We’re glad you have spent time learning more about empathy and know the skill is not developed over night.
-          Keep working on developing your empathy and don’t hesitate to partner with your manager and coworkers to
-          discuss how to handle certain situations.
-        </p>
+      <div *ngIf="result_page">
+        <h2>Result</h2>
+        <div *ngIf="marks == 300">
+          <p>
+            That was a good attempt. Showing empathy and creating emotional connection with the Client is a good
+            foundation for earning respect of your client. To learn more about empathy, please go through this pathway
+            and attempt this activity again.
+          </p>
+        </div>
+        <div *ngIf="marks == 600">
+          <p>
+            We’re glad you have spent time learning more about empathy and know the skill is not developed over night.
+            Keep working on developing your empathy and don’t hesitate to partner with your manager and coworkers to
+            discuss how to handle certain situations.
+          </p>
+        </div>
+        <div *ngIf="marks > 300 && marks < 600">
+          <p>
+            Great work! You’ve been able to identify most, if not all, responses that are most empathetic. You have a
+            high-level
+            understanding of empathy. Don’t hesitate to help your coworkers develop their empathy and let them know they
+            can
+            reach out to you if they need help responding to clients.
+          </p>
+        </div>
+        <div class="replay">
+          <!-- <a href="/page5"> Replay</a> -->
+          <div class="submit" (click)="replay()">Replay</div>
+        </div>
       </div>
-      <div *ngIf="wrong">
-        <p>
-          Great work! You’ve been able to identify most, if not all, responses that are most empathetic. You have a
-          high-level
-          understanding of empathy. Don’t hesitate to help your coworkers develop their empathy and let them know they
-          can
-          reach out to you if they need help responding to clients.
-        </p>
-      </div>
-      <div class="replay">
-        <!-- <a href="/page5"> Replay</a> -->
-        <div class="submit" (click)="replay()">Replay</div>
-      </div>
-    </div>
     </div>
   </div>
 </div>
