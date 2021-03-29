@@ -9,8 +9,10 @@ import { MainService } from '../main.service';
 })
 export class Page4Component implements AfterViewInit {
 
-  data = `Let's ﬁnd out if you can identify the more empathetic response in some common Global IT
-  situations. Remember, empathy is a key element to creating great client experiences.`
+  //data = `Let's ﬁnd out if you can identify the more empathetic response in some common Global IT
+  //situations. Remember, empathy is a key element to creating great client experiences.`
+  data = `Let's ﬁnd out if you can identify the more empathetic response in some common Cargill
+  situations. Remember, empathy is a key element to creating great client experiences.`;
   data1 = `Rules of the game:
   <ul>
   <li>For each scenario, you have two options to choose from.</li>

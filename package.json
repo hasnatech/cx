@@ -8,6 +8,7 @@
     "test": "ng test",
     "lint": "ng lint",
     "e2e": "ng e2e",
+    "upload": "ng build --prod --base-href ./",
     "predeploy": "ng build --prod --base-href https://hasnatech.github.io/cx/",
     "deploy": "gh-pages -d dist/cx"
   },
