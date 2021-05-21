@@ -277,7 +277,7 @@ back to you to ensure we can change the outage window, so your customer is not i
     this.current_ques_no = i;
     this.current_ques = this.quiz[i];
     this.ishidden = true;
-    console.log(this.animText);
+    //console.log(this.animText);
     if (this.animText !== undefined) {
       this.animText.animate();
     }
@@ -287,12 +287,12 @@ back to you to ensure we can change the outage window, so your customer is not i
     this.current_ques.selected = i;
     this.ishidden = true;
     this.isnext = false;
-    console.log(this.current_ques.selected)
+    //console.log(this.current_ques.selected)
 
   }
   getChoiceSelection(ans, i) {
     if (this.current_ques.selected == i && this.isnext) {
-      console.log(ans)
+      //console.log(ans)
       return ans.correct == 'false';
     }
     //console.log(ans.correct, this.current_ques.selected)
@@ -361,5 +361,8 @@ back to you to ensure we can change the outage window, so your customer is not i
       element.fullmark = undefined;
       element.selected = undefined
     });
+  }
+  close(){
+    window.close();
   }
 }

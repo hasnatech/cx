@@ -31,6 +31,8 @@
       <div class="submit" (click)="next()" *ngIf="ishidden == false">Next</div>
     </div>
 
+   
+
     <div class="points">
 
       <!-- <button (click)="current_ques_no = current_ques_no + 1">Score</button> -->
@@ -125,9 +127,14 @@
             reach out to you if they need help responding to clients.
           </p>
         </div>
-        <div class="replay">
-          <!-- <a href="/page5"> Replay</a> -->
-          <div class="submit" (click)="replay()">Replay</div>
+        
+        <div class="flex fcenter">
+          <div class="replay" *ngIf="marks < 600 ">
+            <div class="submit" (click)="replay()">Replay</div>
+          </div>
+          <div class="replay">
+            <div class="submit" (click)="close()">Exit</div>
+          </div>
         </div>
       </div>
     </div>
