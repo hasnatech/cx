@@ -11,8 +11,7 @@ export class Page4Component implements AfterViewInit {
 
   //data = `Let's ﬁnd out if you can identify the more empathetic response in some common Global IT
   //situations. Remember, empathy is a key element to creating great client experiences.`
-  data = `Let's ﬁnd out if you can identify the more empathetic response in some common Cargill
-  situations. Remember, empathy is a key element to creating great client experiences.`;
+  data = `Let's find out if you can identify the more empathetic response in client experience scenarios. This exercise uses some common situations that come up in Global IT. See if you can correctly answer the questions, and also think about how you might respond given your role and responsibilities.`;
   data1 = `Rules of the game:
   <ul>
   <li>For each scenario, you have two options to choose from.</li>
@@ -29,7 +28,7 @@ export class Page4Component implements AfterViewInit {
   }
   ngAfterViewInit(): void {
     const tl = new TimelineMax();
-    tl.to("#startbtn", {opacity: 1, duration: 1, delay:10});
+    tl.to("#startbtn", { opacity: 1, duration: 1, delay: 10 });
   }
 
 }

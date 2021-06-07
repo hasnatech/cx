@@ -24,5 +24,5 @@ export class Page1Component implements AfterViewInit {
     tl.fromTo(right, { x: 200, opacity: 0, ease: ease }, { duration: speed, x: 0, opacity: 1, delay: 2 }, 0);
     console.log("first Page")
   }
-  data = `<h2>What is Empathy? <br>Why empathy matters at the workplace?</h2>`
+  data = `<h2>What is empathy? <br>Why does empathy matter at the workplace?</h2>`
 }
